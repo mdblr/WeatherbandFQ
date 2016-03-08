@@ -1,11 +1,14 @@
-$temp = $('#temp');
-$summary = $('#summary');
+var $temp = $('#temp');
+var $summary = $('#summary');
+var today = moment().format("[today] hA");;
 
 function displayForecast(info) {
     var temp = Math.floor(info.hourly.data[0].temperature) + '\u00B0';
     $temp.append(temp);
     // $test.append(info.currently.icon);
-    $summary.append(info.hourly.data[0].summary);
+    $summary.append('<div>'+ today +'</div>');
+    $summary.append('<div>'+ info.hourly.data[0].summary +'</div>');
+
 }
 
 $.ajax({
