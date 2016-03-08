@@ -31,6 +31,7 @@ $(document).ready(function() {
 	});
 });
 
+
 // HTML5 Geolocation
 
 // function userCoords() {

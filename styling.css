@@ -4,15 +4,22 @@
 
 section, section * {
   text-align: center;
+  font-color:
 }
 
 #main {
   /*margin: 0 auto;*/
   margin-top: 40vh;
+  color: #2392C8;
+}
+
+html {
+  /*background-image: url(assets/bowie3_terryoneill.jpg);*/
+  /*background-image: url(assets/dharry1.jpeg);*/
 }
 
 
-#slideshow, img.bgM {
+#slideshow, div.bgM {
   min-height: 100%;
   min-width: 1024px;
   width: 100%;
@@ -21,5 +28,15 @@ section, section * {
   top: 0;
   left: 0;
   z-index:-9999;
-  image-size: contain;
+}
+
+#dh1 {
+  background-image: url(assets/dharry1.jpeg);
+  background-size: contain;
+  animation:
+}
+
+#db1{
+  background-image: url(assets/bowie3_terryoneill.jpg);
+  background-size: contain;
 }
