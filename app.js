@@ -1,30 +1,56 @@
 var $temp = $('#temp');
 var $summary = $('#summary');
-var today = moment().format("[today] h:mm a");;
+var $input = $('#input');
+var today = moment().format("[today] h:mm a");
+var apiVal;
+
+$('#click').on("click", function(){
+  apiVal = $('#state').val() + "/" + $('#city').val() + "/" + $('#zip').val() + ".json";
+  weatherUnderG(apiVal);
+});
+
+
 
 
 
 // Dashboard
 function displayForecast(info) {
-    var temp = Math.floor(info.hourly.data[0].temperature) + '\u00B0';
+    $input.empty();
+    var temp = info.current_observation.temp_f + '\u00B0';
     $temp.append(temp);
     // $test.append(info.currently.icon);
-    $summary.append('<div>'+ today +'</div>');
-    $summary.append('<div>'+ info.hourly.data[0].summary +'</div>');
+    // $summary.append('<div>'+ today +'</div>');
+    // $summary.append('<div>'+ current_observation.temp_f +'</div>');
 
     // static code for style testing
     // var temp = "47" + '\u00B0';
     // $temp.append(temp);
     // $summary.append('<div>'+ today +'</div>');
     // $summary.append('<div> It"s cold out!</div>');
-
     // $test.append(info.currently.icon);
-
-
 }
 
+// WeatherUnderground API
+function weatherUnderG(apiVal) {
+  $.ajax({
+    method: "GET",
+    dataType: 'jsonp',
+    url: "http://api.wunderground.com/api/a23692177cc6bae1/conditions/q/" + apiVal
+  })
+  .done(function(info) {
+      console.log("DONE");
+      console.log(info);
+    //write all my code that relies on the response data
+      displayForecast(info);
+   })
+  .fail(function(err){
+    console.log("FAIL");
+    console.log(err);
+  });
+}
 
-$(document).ready(function() {
+// background rotation
+function backgrounds() {
 	$('#slideshow').cycle({
 	fx: 'fade',
 	pager: '#smallnav',
@@ -32,54 +58,4 @@ $(document).ready(function() {
 	speed: 1000,
 	timeout:  3500
 	});
-});
-
-// Forecast.io call
-
-
-
-
-// HTML5 Geolocation
-
-function userCoords() {
-  if (!navigator.geolocation) {
-    $temp.append('<div> Please enable access to your location or switch to a modern browser</div>');
-    return;
-  }
-
-  function success(position) {
-    var latitude = position.coords.latitude;
-    var longitude = position.coords.longitude;
-
-    $.ajax({
-      method: "GET",
-      dataType: 'jsonp',
-      url: "https://api.forecast.io/forecast/ec4ea27eb974f4bdcd500583b2c49367/" +
-      latitude + "," + longitude
-    })
-    .done(function(info) {
-        console.log("DONE");
-        console.log(info);
-      //write all my code that relies on the response data
-        displayForecast(info);
-     })
-    .fail(function(err){
-      console.log("FAIL");
-      console.log(err);
-    });
-
-    displayForecast(info);
-
-  };
-
-  function error(info){
-    console.log(info);
-    $temp.append('<div> Something went wrong ): </div>');
-  };
-
-  navigator.geolocation.getCurrentPosition(success, error);
 }
-
-userCoords();
-
-displayForecast();
