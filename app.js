@@ -9,9 +9,56 @@ $('#click').on("click", function(){
   weatherUnderG(apiVal);
 });
 
+// background rotation
+function backgrounds() {
+	$('#slideshow').cycle({
+	fx: 'fade',
+	pager: '#smallnav',
+	pause:   1,
+	speed: 1000,
+	timeout:  3500
+	});
+}
 
-// ec4ea27eb974f4bdcd500583b2c49367
+backgrounds();
 
+// WeatherUnderground API
+function weatherUnderG(apiVal) {
+  $.ajax({
+    method: "GET",
+    dataType: 'jsonp',
+    url: "http://api.wunderground.com/api/a23692177cc6bae1/conditions/q/" + apiVal
+  })
+  .done(function(info) {
+    var userCoords = (function(){
+      var wugSplit = (info.current_observation.ob_url).split("=");
+      var forecastAPI = "https://api.forecast.io/forecast/ec4ea27eb974f4bdcd500583b2c49367/" + wugSplit[1];
+      return forecastAPI;
+    })(info.current_observation.ob_url);
+
+    displayForecast(info);
+    rowWeather(userCoords);
+
+   })
+  .fail(function(err){
+    console.log("FAIL");
+    console.log(err);
+  });
+}
+
+function rowWeather(string){
+  $.ajax({
+    method: "GET",
+    dataType: "jsonp",
+    url: string
+  })
+  .done(function(info) {
+    console.log(info);
+  })
+  .fail(function(err){
+    console.log(err);
+  });
+}
 
 // Dashboard
 function displayForecast(info) {
@@ -30,35 +77,3 @@ function displayForecast(info) {
     // $summary.append('<div> It"s cold out!</div>');
     // $test.append(info.currently.icon);
 }
-
-// WeatherUnderground API
-function weatherUnderG(apiVal) {
-  $.ajax({
-    method: "GET",
-    dataType: 'jsonp',
-    url: "http://api.wunderground.com/api/a23692177cc6bae1/conditions/q/" + apiVal
-  })
-  .done(function(info) {
-    console.log("DONE");
-    console.log(info);
-    //write all my code that relies on the response data
-    console.log(info.current_observation.ob_url);
-    displayForecast(info);
-   })
-  .fail(function(err){
-    console.log("FAIL");
-    console.log(err);
-  });
-}
-
-// background rotation
-function backgrounds() {
-	$('#slideshow').cycle({
-	fx: 'fade',
-	pager: '#smallnav',
-	pause:   1,
-	speed: 1000,
-	timeout:  3500
-	});
-}
-backgrounds();
