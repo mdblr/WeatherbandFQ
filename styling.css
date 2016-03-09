@@ -38,10 +38,34 @@ html {
 #dh1 {
   background-image: url(assets/dharry1.jpeg);
   background-size: contain;
-  animation:
+  background-repeat: none;
+}
+
+#dh2 {
+  background-image: url(assets/dharry2.jpg);
+  background-size: contain;
 }
 
 #db1{
   background-image: url(assets/bowie3_terryoneill.jpg);
   background-size: contain;
+  background-repeat: none;
+}
+
+#db2{
+  background-image: url(assets/bowie1.jpg);
+  background-size: contain;
+  background-repeat: none;
+}
+
+#gj1{
+  background-image: url(assets/gjones1.jpg);
+  background-size: contain;
+  background-repeat: none;
+}
+
+#gj2{
+  background-image: url(assets/gjones2.jpg);
+  background-size: contain;
+  background-repeat: none;
 }
