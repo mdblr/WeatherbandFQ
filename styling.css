@@ -18,6 +18,10 @@ html {
   /*background-image: url(assets/dharry1.jpeg);*/
 }
 
+.todaysTemp {
+  font-size: 90px;
+}
+
 
 #slideshow, div.bgM {
   min-height: 100%;
