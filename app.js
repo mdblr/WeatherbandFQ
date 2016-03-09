@@ -59,3 +59,4 @@ function backgrounds() {
 	timeout:  3500
 	});
 }
+backgrounds();
