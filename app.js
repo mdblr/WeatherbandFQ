@@ -10,12 +10,13 @@ $('#click').on("click", function(){
 });
 
 
-
+// ec4ea27eb974f4bdcd500583b2c49367
 
 
 // Dashboard
 function displayForecast(info) {
     $input.empty();
+    $('#slideshow').removeClass('landingBlur');
     var temp = info.current_observation.temp_f + '\u00B0';
     $temp.append(temp);
     // $test.append(info.currently.icon);
@@ -38,10 +39,11 @@ function weatherUnderG(apiVal) {
     url: "http://api.wunderground.com/api/a23692177cc6bae1/conditions/q/" + apiVal
   })
   .done(function(info) {
-      console.log("DONE");
-      console.log(info);
+    console.log("DONE");
+    console.log(info);
     //write all my code that relies on the response data
-      displayForecast(info);
+    console.log(info.current_observation.ob_url);
+    displayForecast(info);
    })
   .fail(function(err){
     console.log("FAIL");

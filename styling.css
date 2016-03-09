@@ -78,3 +78,15 @@ html {
 #temp {
  background: rgba(0, 0, 0, 0.5);
 }
+
+.formWidth {
+  width: 100px;
+}
+
+.bgFade {
+   background: rgba(0, 0, 0, 0.4);
+}
+
+.inputPadding {
+  padding-top: 1%;
+}
