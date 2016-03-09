@@ -13,13 +13,23 @@
     <link rel="stylesheet" href="styling.css">
   </head>
   <body>
-    <div id="slideshow">
+    <!-- <div id="slideshow">
       <div id="db1" class="bgM"/></div>
       <div id="dh1" class="bgM"/></div>
-    </div>
+    </div> -->
     <section id="main" class="container-fluid col-md-12">
       <div class="col-md-offet-5 col-md-2 col-md-offset-5">
         <section>
+          <section id="input">
+            <label>State</label>
+            <input id="state" type="text" required>
+            <label>City</label>
+            <input id="city" type="text" required>
+            <label>ZIP</label>
+            <input id="zip" type="text">
+            <br>
+            <button id="click">Click Me!</button>
+          </section>
           <main id='temp' class="todaysTemp"></main>
           <aside id='summary'>
           </aside>
