@@ -16,7 +16,7 @@ function backgrounds() {
 	fx: 'fade',
 	pager: '#smallnav',
 	pause:   1,
-	speed: 1000,
+	speed: 2000,
 	timeout:  3500
 	});
 }
