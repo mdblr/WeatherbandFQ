@@ -16,7 +16,7 @@ function backgrounds() {
 	fx: 'fade',
 	pager: '#smallnav',
 	pause:   1,
-	speed: 2000,
+	speed: 2500,
 	timeout:  3500
 	});
 }
@@ -31,6 +31,7 @@ function weatherUnderG(apiVal) {
     url: "http://api.wunderground.com/api/a23692177cc6bae1/conditions/q/" + apiVal
   })
   .done(function(info) {
+
     var userCoords = (function(){
       var wugSplit = (info.current_observation.ob_url).split("=");
       var forecastAPI = "https://api.forecast.io/forecast/ec4ea27eb974f4bdcd500583b2c49367/" + wugSplit[1];
@@ -67,14 +68,12 @@ function displayForecast(info) {
 
     $('section .col-md-2').addClass('bgFade');
     $('#slideshow').removeClass('landingBlur');
-
+    $('#slideshow div').addClass('testBgFx');
 
     var more = '<h3 id="calendar"><i id="more" class="fa fa-calendar-plus-o"></i></h3>'
     var temp = info.current_observation.temp_f + '\u00B0' + more;
 
     $temp.append(temp);
-
-
 
 
     $('#more').on('click', function(){
@@ -96,4 +95,23 @@ function displayForecast(info) {
     // $summary.append('<div>'+ today +'</div>');
     // $summary.append('<div> It"s cold out!</div>');
     // $test.append(info.currently.icon);
+}
+
+
+function bgWeatherFX() {
+  // if (conditions = "rain" {
+  //   $('#slideshow div').addClass('rainFilter');
+  // } else if (conditions = "clear"){
+  //   $('#slideshow div').addClass('clearFilter');
+  // } else if (conditions = "snow" ){
+  //   $('#slideshow div').addClass('snowFilter');
+  // } else if (conditions = "fog"){
+  //   $('#slideshow div').addClass('fogFilter');
+  // } else if (conditions = "partly-cloudy"){
+  //   $('#slideshow div').addClass('cloudyFilter');
+  // } else if (conditions = "cloudy"){
+  //   $('#slideshow div').addClass('overcastFilter');
+  // }
+
+  $('#slideshow div').addClass('testBgFx');
 }
