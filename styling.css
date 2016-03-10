@@ -165,8 +165,9 @@ main {
 }
 
 .clear {
-  filter: saturation(1.5);
-  -webkit-filter: saturation(1.5);
+  filter: saturation(2);
+  -webkit-filter: saturation(2);
+
 }
 
 .rain {
@@ -194,6 +195,9 @@ main {
   filter: brightness(1.2);
   -webkit-filter: saturation(1.2);
   filter: saturation(1.2);
+  -webkit-filter: grayscale(.5);
+  filter: grayscale(.5);
+
 }
 
 .cloudy {

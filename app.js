@@ -56,6 +56,7 @@ function rowWeather(string){
   })
   .done(function(info) {
     console.log(info);
+    bgWeatherFX(info.currently.icon);
   })
   .fail(function(err){
     console.log(err);
@@ -68,7 +69,7 @@ function displayForecast(info) {
 
     $('section .col-md-2').addClass('bgFade');
     $('#slideshow').removeClass('landingBlur');
-    $('#slideshow div').addClass('testBgFx');
+
 
     var more = '<h3 id="calendar"><i id="more" class="fa fa-calendar-plus-o"></i></h3>'
     var temp = info.current_observation.temp_f + '\u00B0' + more;
@@ -98,20 +99,18 @@ function displayForecast(info) {
 }
 
 
-function bgWeatherFX() {
-  // if (conditions = "rain" {
-  //   $('#slideshow div').addClass('rainFilter');
-  // } else if (conditions = "clear"){
-  //   $('#slideshow div').addClass('clearFilter');
-  // } else if (conditions = "snow" ){
-  //   $('#slideshow div').addClass('snowFilter');
-  // } else if (conditions = "fog"){
-  //   $('#slideshow div').addClass('fogFilter');
-  // } else if (conditions = "partly-cloudy"){
-  //   $('#slideshow div').addClass('cloudyFilter');
-  // } else if (conditions = "cloudy"){
-  //   $('#slideshow div').addClass('overcastFilter');
-  // }
-
-  $('#slideshow div').addClass('testBgFx');
+function bgWeatherFX(conditions) {
+  if (conditions === "rain") {
+    $('#slideshow div').addClass('rain');
+  } else if (conditions === "clear-day"){
+    $('#slideshow div').addClass('clear');
+  } else if (conditions === "snow"){
+    $('#slideshow div').addClass('snow');
+  } else if (conditions === "fog"){
+    $('#slideshow div').addClass('fog');
+  } else if (conditions === "partly-cloudy-day"){
+    $('#slideshow div').addClass('partlyCloudy');
+  } else if (conditions === "cloudy"){
+    $('#slideshow div').addClass('cloudy');
+  }
 }
