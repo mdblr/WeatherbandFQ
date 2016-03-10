@@ -163,3 +163,44 @@ main {
   filter: grayscale(1);
   -webkit-filter: grayscale(1);
 }
+
+.clear {
+  filter: saturation(1.5);
+  -webkit-filter: saturation(1.5);
+}
+
+.rain {
+  filter: grayscale(.5);
+  -webkit-filter: grayscale(.5);
+  filter: contrast(1.5);
+  -webkit-filter: contrast(1.5);
+  filter: brightness(.8);
+  -webkit-filter: brightness(.8);
+
+}
+
+.snow {
+  -webkit-filter: sepia(1) hue-rotate(200deg);
+  filter: sepia(1) hue-rotate(200deg);
+}
+
+.fog {
+  filter: opacity(.6);
+  -webkit-filter: opacity(.6);
+}
+
+.partlyCloudy {
+  -webkit-filter: brightness(1.2);
+  filter: brightness(1.2);
+  -webkit-filter: saturation(1.2);
+  filter: saturation(1.2);
+}
+
+.cloudy {
+  filter: grayscale(.5);
+  -webkit-filter: grayscale(.5);
+  filter: contrast(1.5);
+  -webkit-filter: contrast(1.5);
+  filter: brightness(1.2);
+  -webkit-filter: brightness(1.2);
+}
