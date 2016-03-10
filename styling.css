@@ -8,9 +8,8 @@ section, section * {
 }
 
 #main {
-  /*margin: 0 auto;*/
   margin-top: 40vh;
-  color: #2392C8;
+  color:white;
 }
 
 
@@ -75,18 +74,40 @@ html {
   background-repeat: none;
 }
 
-#temp {
- background: rgba(0, 0, 0, 0.5);
-}
-
 .formWidth {
   width: 100px;
 }
 
 .bgFade {
-   background: rgba(0, 0, 0, 0.4);
+  border-radius: 11%;
+  background: rgba(0, 0, 0, 0.6);
 }
 
-.inputPadding {
-  padding-top: 1%;
+#calendar {
+  display: inline-block;
+  position: absolute;
+  top: 52px;
+  left: 183px;
+  color: red;
+}
+
+.form-control {
+  width: 50%;
+  position: relative;
+  left: 25%;
+}
+
+input {
+  background-color:transparent !important;
+  color: white !important;
+}
+
+#weatherDetails {
+  display: none;
+}
+
+main {
+  position: relative;
+  left: -4px;
+  top: 6px;
 }

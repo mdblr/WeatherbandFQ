@@ -1,8 +1,9 @@
 var $temp = $('#temp');
-var $summary = $('#summary');
 var $input = $('#input');
 var today = moment().format("[today] h:mm a");
 var apiVal;
+var $weatherDeets = $('#weatherDetails');
+var $back = $('#back');
 
 $('#click').on("click", function(){
   apiVal = $('#state').val() + "/" + $('#city').val() + "/" + $('#zip').val() + ".json";
@@ -63,9 +64,28 @@ function rowWeather(string){
 // Dashboard
 function displayForecast(info) {
     $input.empty();
+
+    $('section .col-md-2').addClass('bgFade');
     $('#slideshow').removeClass('landingBlur');
-    var temp = info.current_observation.temp_f + '\u00B0';
+
+
+    var more = '<h3 id="calendar"><i id="more" class="fa fa-calendar-plus-o"></i></h3>'
+    var temp = info.current_observation.temp_f + '\u00B0' + more;
+
     $temp.append(temp);
+
+
+
+
+    $('#more').on('click', function(){
+      $('#weatherDetails').slideDown();
+      $temp.slideUp();
+    });
+
+    $back.on('click', function(){
+      $temp.slideDown();
+      $weatherDeets.slideUp();
+    });
     // $test.append(info.currently.icon);
     // $summary.append('<div>'+ today +'</div>');
     // $summary.append('<div>'+ current_observation.temp_f +'</div>');
