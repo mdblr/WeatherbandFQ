@@ -12,12 +12,6 @@ section, section * {
   color:white;
 }
 
-
-html {
-  /*background-image: url(assets/bowie3_terryoneill.jpg);*/
-  /*background-image: url(assets/dharry1.jpeg);*/
-}
-
 .todaysTemp {
   font-size: 90px;
 }
@@ -121,27 +115,32 @@ html {
 }
 
 
-.formWidth {
-  width: 100px;
-}
-
 .bgFade {
   border-radius: 11%;
+  padding-top: 10px;
   background: rgba(0, 0, 0, 0.6);
+  max-width: 180px;
 }
 
-#calendar {
+.bgFade2 {
+  border-radius: 25px;
+  padding-top: 25px;
+  background: rgba(0, 0, 0, 0.6);
+  max-width: 368px;
+}
+
+/*#calendar {
   display: inline-block;
   position: absolute;
   top: 52px;
   left: 183px;
   color: red;
-}
+}*/
 
 .form-control {
-  width: 50%;
+  width: 75%;
   position: relative;
-  left: 25%;
+  left: 14%;
 }
 
 input {
@@ -153,16 +152,11 @@ input {
   display: none;
 }
 
-main {
+/*main {
   position: relative;
   left: -4px;
   top: 6px;
-}
-
-.testBgFx {
-  filter: grayscale(1);
-  -webkit-filter: grayscale(1);
-}
+}*/
 
 .clear {
   filter: saturation(2);

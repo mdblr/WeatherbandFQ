@@ -57,6 +57,7 @@ function rowWeather(string){
   .done(function(info) {
     console.log(info);
     bgWeatherFX(info.currently.icon);
+    weatherIcon(info.currently.icon);
   })
   .fail(function(err){
     console.log(err);
@@ -67,35 +68,24 @@ function rowWeather(string){
 function displayForecast(info) {
     $input.empty();
 
-    $('section .col-md-2').addClass('bgFade');
+    $('section .col-md-4').addClass('bgFade2');
     $('#slideshow').removeClass('landingBlur');
-
-
-    var more = '<h3 id="calendar"><i id="more" class="fa fa-calendar-plus-o"></i></h3>'
-    var temp = info.current_observation.temp_f + '\u00B0' + more;
+    // var more = '<h3 id="calendar"><i id="more" class="fa fa-calendar-plus-o"></i></h3>'
+    var temp = info.current_observation.temp_f + '\u00B0';
+    // + more;
 
     $temp.append(temp);
-
-
-    $('#more').on('click', function(){
-      $('#weatherDetails').slideDown();
-      $temp.slideUp();
-    });
-
-    $back.on('click', function(){
-      $temp.slideDown();
-      $weatherDeets.slideUp();
-    });
-    // $test.append(info.currently.icon);
-    // $summary.append('<div>'+ today +'</div>');
-    // $summary.append('<div>'+ current_observation.temp_f +'</div>');
-
-    // static code for style testing
-    // var temp = "47" + '\u00B0';
     // $temp.append(temp);
-    // $summary.append('<div>'+ today +'</div>');
-    // $summary.append('<div> It"s cold out!</div>');
-    // $test.append(info.currently.icon);
+
+    // $('#more').on('click', function(){
+    //   $('#weatherDetails').slideDown();
+    //   $temp.slideUp();
+    // });
+    //
+    // $back.on('click', function(){
+    //   $temp.slideDown();
+    //   $weatherDeets.slideUp();
+    // });
 }
 
 
@@ -112,5 +102,31 @@ function bgWeatherFX(conditions) {
     $('#slideshow div').addClass('partlyCloudy');
   } else if (conditions === "cloudy"){
     $('#slideshow div').addClass('cloudy');
+  }
+}
+
+function weatherIcon(conditions) {
+  if (conditions === "clear-day") {
+    $temp.prepend('<i class="wi wi-day-sunny"></i>');
+  } else if (conditions === "clear-night"){
+    $temp.prepend('<i class="wi wi-night-clear"></i>');
+  } else if (conditions === "rain"){
+    $temp.prepend('<i class="wi wi-rain"></i>');
+  } else if (conditions === "snow"){
+    $temp.prepend('<i class="wi wi-snow"></i>');
+  } else if (conditions === "sleet"){
+    $temp.prepend('<i class="wi wi-sleet"></i>');
+  } else if (conditions === "wind"){
+    $temp.prepend('<i class="wi wi-strong-wind"></i>');
+  } else if (conditions === "fog"){
+    $temp.prepend('<i class="wi wi-fog"></i>');
+  } else if (conditions === "partly-cloudy-day"){
+    $temp.prepend('<i class="wi wi-day-cloudy"></i>');
+  } else if (conditions === "partly-cloudy-night"){
+    $temp.prepend('<i class="wi wi-night-partly-cloudy"></i>');
+  } else if (conditions === "cloudy"){
+    $temp.prepend('<i class="wi wi-cloudy"></i>');
+  } else {
+    $temp.prepend('<i class="wi wi-thermometer-exterior"></i>');
   }
 }
