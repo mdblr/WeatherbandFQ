@@ -4,11 +4,18 @@ var today = moment().format("[today] h:mm a");
 var apiVal;
 var $weatherDeets = $('#weatherDetails');
 var $back = $('#back');
-var temp;
+var temp, summary;
+var $reset = $('#reset');
+
 
 $('#click').on("click", function(){
   apiVal = $('#state').val() + "/" + $('#city').val() + "/" + $('#zip').val() + ".json";
+  $('#slideshow').removeClass('landingBlur');
   weatherUnderG(apiVal);
+});
+
+$reset.on("click", function(){
+  reset();
 });
 
 // background rotation
@@ -22,8 +29,10 @@ function backgrounds() {
 	});
 }
 
+$('document').ready(function(){
+  backgrounds();
+});
 
-backgrounds();
 
 // WeatherUnderground API
 function weatherUnderG(apiVal) {
@@ -48,7 +57,6 @@ function weatherUnderG(apiVal) {
   });
 }
 
-
 //forecastIO call
 function rowWeather(string){
   $.ajax({
@@ -59,6 +67,7 @@ function rowWeather(string){
   .done(function(info) {
     console.log(info);
     bgWeatherFX(info.currently.icon);
+    summary = info.daily.summary;
     weatherIcon(info.currently.icon);
   })
   .fail(function(err){
@@ -68,26 +77,13 @@ function rowWeather(string){
 
 // User's Weather
 function displayForecast(info) {
-    $input.slideUp(100);
-
-    $('#background').addClass('bgFade2');
-    $('#slideshow').removeClass('landingBlur');
-    // var more = '<h3 id="calendar"><i id="more" class="fa fa-calendar-plus-o"></i></h3>'
     temp =  info.current_observation.temp_f + '\u00B0';
-    // + more;
-    // $temp.append(temp);
-
-    // $('#more').on('click', function(){
-    //   $('#weatherDetails').slideDown();
-    //   $temp.slideUp();
-    // });
-    //
-    // $back.on('click', function(){
-    //   $temp.slideDown();
-    //   $weatherDeets.slideUp();
-    // });
+    $.when($input.fadeOut(320)).then(function(){
+      $('#background').addClass('bgFade2');
+      $('#background').fadeIn();
+      
+    });
 }
-
 
 function bgWeatherFX(conditions) {
   if (conditions === "rain") {
@@ -98,7 +94,7 @@ function bgWeatherFX(conditions) {
     $('#slideshow div').addClass('snow');
   } else if (conditions === "fog"){
     $('#slideshow div').addClass('fog');
-  } else if (conditions === "partly-cloudy-day"){
+  } else if (conditions === "partly-cloudy-day") {
     $('#slideshow div').addClass('partlyCloudy');
   } else if (conditions === "cloudy"){
     $('#slideshow div').addClass('cloudy');
@@ -121,14 +117,23 @@ function weatherIcon(conditions) {
   } else if (conditions === "fog"){
     $temp.prepend('<i class="wi wi-fog"></i>');
   } else if (conditions === "partly-cloudy-day"){
-    $('#usersWeather').animate({left: "+=20px"},100,function(){$temp.prepend('<i class="wi wi-day-cloudy"></i>');}); console.log('done');
+    $temp.prepend('<i class="wi wi-day-cloudy"></i>');
   } else if (conditions === "partly-cloudy-night"){
     $temp.prepend('<i class="wi wi-night-partly-cloudy"></i>');
-     console.log('done');
   } else if (conditions === "cloudy"){
     $temp.prepend('<i class="wi wi-cloudy"></i>');
   } else {
     $temp.prepend('<i class="wi wi-thermometer-exterior"></i>');
   }
   $temp.append(temp);
+  $temp.fadeIn(400);
+  $('summary').append(summary);
+}
+
+function reset(){
+  $('footer').toggle();
+  $temp.empty();
+  $('summary').empty();
+  $('#background').removeClass('bgFade2');
+  $input.slideDown();
 }

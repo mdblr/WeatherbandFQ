@@ -1,14 +1,33 @@
+/*misc*/
 * {
   box-sizing: border-box;
 }
 
 section, section * {
   text-align: center;
-  font-color:
 }
 
+footer {
+  position: relative;
+  top: 355px;
+  display: none;
+}
+
+
+#reset:hover {
+  color: red;
+}
+
+/*#reset {
+  display: inline-block;
+  /*position: fixed;*/
+  /*left: 1350px;*/
+/*}/*/
+
+/*landing page*/
+
 #main {
-  margin-top: 40vh;
+  margin-top: 30vh;
   color:white;
 }
 
@@ -21,7 +40,98 @@ section, section * {
   filter: blur(3px);
 }
 
+.bgFade {
+  border-radius: 12px;
+  padding-top: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  max-width: 180px;
+  min-width: 180px;
+  box-shadow: 0 12px 12px 5px rgba(0, 0, 0, .2);
+}
 
+.form-control {
+  width: 75%;
+  position: relative;
+  left: 14%;
+}
+
+input {
+  background-color:transparent !important;
+  color: white !important;
+}
+
+/*User's weather*/
+#temp {
+  display: none;
+  position: relative;
+  bottom: 13px;
+  left: 2px;
+}
+
+i {
+  margin-right: 7px;
+}
+#background {
+  display:none;
+  position: relative;
+  left: 537px;
+  top: 50px;
+}
+
+.bgFade2 {
+  border-radius: 20px;
+  padding-top: 25px;
+  background: rgba(0, 0, 0, 0.4);
+  max-width: 325px;
+  min-width: 325px;
+  max-height: 140px;
+  min-height: 150px;
+  box-shadow: 0 12px 12px 5px rgba(0, 0, 0, .2);
+  display: none;
+}
+
+
+/*#calendar {
+display: inline-block;
+position: absolute;
+top: 52px;
+left: 183px;
+color: red;
+}*/
+
+/*background FX*/
+.clear {
+  filter: saturation(2);
+  -webkit-filter: saturation(2);
+  filter: brightness(2);
+  -webkit-filter: brightness(2);
+
+}
+.rain {
+  filter: grayscale(.8);
+  -webkit-filter: grayscale(.8);
+}
+.snow {
+  -webkit-filter: sepia(1) hue-rotate(200deg);
+  filter: sepia(1) hue-rotate(200deg);
+}
+.fog {
+  filter: opacity(.8);
+  -webkit-filter: opacity(.8);
+}
+.cloudy {
+  filter: grayscale(.5);
+  -webkit-filter: grayscale(.5);
+}
+
+.partlyCloudy {
+  filter: grayscale(.5);
+  -webkit-filter: grayscale(.5);
+  filter: saturation(2);
+  -webkit-filter: saturation(2);
+}
+
+/*background carousel*/
 #slideshow, div.bgM {
   min-height: 100%;
   min-width: 1024px;
@@ -33,7 +143,6 @@ section, section * {
   z-index:-9999;
   animation:move 7s ease infinite;
 }
-
 
 #selena1 {
   background-image: url(assets/selena1.jpg);
@@ -84,13 +193,15 @@ section, section * {
   background-image: url(assets/jimhutton_freddiemercury.jpg);
   background-size: contain;
   background-repeat: none;
-  background-position: left;
+  background-position: right;
 }
 
 #loureed{
   background-image: url(assets/loureed.jpg);
   background-size: contain;
-  background-position: center;
+  background-position: right;
+  -webkit-filter: brightness(1.2);
+  filter: brightness(1.2);
 
 }
 
@@ -113,107 +224,4 @@ section, section * {
   background-size: cover;
   /*background-repeat: none;
   background-position: left;*/
-}
-
-
-.bgFade {
-  border-radius: 12px;
-  padding-top: 10px;
-  background: rgba(0, 0, 0, 0.6);
-  max-width: 180px;
-  min-width: 180px;
-}
-
-.bgFade2 {
-  border-radius: 20px;
-  padding-top: 25px;
-  background: rgba(0, 0, 0, 0.3);
-  max-width: 325px;
-  min-width: 325px;
-  max-height: 140px;
-  min-height: 150px;
-  box-shadow: 0 12px 12px 5px rgba(0, 0, 0, .4);
-}
-/*#calendar {
-  display: inline-block;
-  position: absolute;
-  top: 52px;
-  left: 183px;
-  color: red;
-}*/
-
-.form-control {
-  width: 75%;
-  position: relative;
-  left: 14%;
-}
-
-input {
-  background-color:transparent !important;
-  color: white !important;
-}
-
-#weatherDetails {
-  display: none;
-}
-
-/*main {
-  position: relative;
-  left: -4px;
-  top: 6px;
-}*/
-
-.clear {
-  filter: saturation(2);
-  -webkit-filter: saturation(2);
-
-}
-
-.rain {
-  filter: grayscale(.5);
-  -webkit-filter: grayscale(.5);
-  filter: contrast(1.5);
-  -webkit-filter: contrast(1.5);
-  filter: brightness(.8);
-  -webkit-filter: brightness(.8);
-
-}
-
-.snow {
-  -webkit-filter: sepia(1) hue-rotate(200deg);
-  filter: sepia(1) hue-rotate(200deg);
-}
-
-.fog {
-  filter: opacity(.6);
-  -webkit-filter: opacity(.6);
-}
-
-.partlyCloudy {
-  -webkit-filter: brightness(1.2);
-  filter: brightness(1.2);
-  -webkit-filter: saturation(1.2);
-  filter: saturation(1.2);
-  -webkit-filter: grayscale(.5);
-  filter: grayscale(.5);
-
-}
-
-.cloudy {
-  filter: grayscale(.5);
-  -webkit-filter: grayscale(.5);
-  filter: contrast(1.5);
-  -webkit-filter: contrast(1.5);
-  filter: brightness(1.2);
-  -webkit-filter: brightness(1.2);
-}
-
-#temp {
-  position: relative;
-  bottom: 13px;
-  left: 2px;
-}
-
-i {
-  margin-right: 7px;
 }

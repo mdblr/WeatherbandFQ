@@ -20,46 +20,58 @@
 
   </head>
   <body>
-    <div id="slideshow" class="landingBlur">
-      <div id="selena1" class="bgM"/></div>
-      <div id="dh1" class="bgM"/></div>
-      <div id="sioux" class="bgM"/></div>
-      <div id="atcq" class="bgM"/></div>
-      <div id="bowie" class="bgM"/></div>
-      <div id="gjones" class="bgM"/></div>
-      <div id="hendrix" class="bgM"/></div>
-      <div id="mercury" class="bgM"/></div>
-      <div id="loureed" class="bgM"/></div>
-      <div id="morrissey" class="bgM"/></div>
-      <div id="nina" class="bgM"/></div>
-      <div id="prince" class="bgM"/></div>
-    </div>
-    <section id="main" class="container-fluid col-md-12">
-      <section id="input">
-        <div class="col-md-offset-5 col-md-2 col-md-offset-5 bgFade">
-          <div class="form-group">
-            <label > City:</label>
-            <input id="city" type="text" class="form-control" placeholder="Seattle" required>
-          </div>
-          <div class="form-group">
-            <label >State:</label>
-            <input id="state" type="text" class="form-control" placeholder="WA" required>
-          </div>
-          <div class="form-group">
-            <label > ZIP:</label>
-            <input id="zip" type="text" class="form-control" placeholder="98109">
-          </div>
-          <div class="form-group">
-            <button id="click" class="btn btn-info">Go</button>
-          </div>
+    <section class="container-fluid">
+      <div id="slideshow" class="landingBlur">
+        <div id="selena1" class="bgM"/></div>
+        <div id="dh1" class="bgM"/></div>
+        <div id="sioux" class="bgM"/></div>
+        <div id="atcq" class="bgM"/></div>
+        <div id="bowie" class="bgM"/></div>
+        <div id="gjones" class="bgM"/></div>
+        <div id="hendrix" class="bgM"/></div>
+        <div id="mercury" class="bgM"/></div>
+        <div id="loureed" class="bgM"/></div>
+        <div id="morrissey" class="bgM"/></div>
+        <div id="nina" class="bgM"/></div>
+        <div id="prince" class="bgM"/></div>
+      </div>
+      <section id="main" class="col-md-12">
+        <div id="input">
+          <main class="col-md-offset-5 col-md-2 col-md-offset-5 bgFade">
+            <section class="form-group">
+              <label > City:</label>
+              <input id="city" type="text" class="form-control" placeholder="e.g., Seattle" required>
+            </section>
+            <section class="form-group">
+              <label >State:</label>
+              <input id="state" type="text" class="form-control" placeholder="e.g., WA" required>
+            </section>
+            <section class="form-group">
+              <label > ZIP:</label>
+              <input id="zip" type="text" class="form-control" placeholder="e.g., 98109">
+            </section>
+            <section class="form-group">
+              <button id="click" class="btn btn-info">Go</button>
+            </section>
+          </main>
         </div>
+        <main>
+          <div id="background">
+            <section id='temp' class="todaysTemp lead"></section>
+            <summary></summary>
+          </div>
+        </main>
       </section>
-      <section class="col-md-offet-5 col-md-3 col-md-offset-4">
-        <div id="background">
-          <main id='temp' class="todaysTemp lead"></main>
-        </div>
-      </section>
+      <footer>
+        <aside class="col-md-8">
+          <h5 class="text-right">weather provided by <a href="https://www.wunderground.com/">Weather Underground</a> and <a href="forecast.io">Forecast.io</a>
+        </aside>
+        <main class="col-md-4">
+          <h5 id="reset" class="text-right">New Query</h5>
+        </main>
+      </footer>
     </section>
+
     <!-- moment.js -->
     <script src="moment.js"></script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
