@@ -21,6 +21,7 @@ function backgrounds() {
 	});
 }
 
+
 backgrounds();
 
 // WeatherUnderground API
@@ -37,10 +38,8 @@ function weatherUnderG(apiVal) {
       var forecastAPI = "https://api.forecast.io/forecast/ec4ea27eb974f4bdcd500583b2c49367/" + wugSplit[1];
       return forecastAPI;
     })(info.current_observation.ob_url);
-
-    displayForecast(info);
     rowWeather(userCoords);
-
+    displayForecast(info);
    })
   .fail(function(err){
     console.log("FAIL");
@@ -48,6 +47,8 @@ function weatherUnderG(apiVal) {
   });
 }
 
+
+//forecastIO call
 function rowWeather(string){
   $.ajax({
     method: "GET",
@@ -64,14 +65,14 @@ function rowWeather(string){
   });
 }
 
-// Dashboard
+// User's Weather
 function displayForecast(info) {
     $input.empty();
 
     $('section .col-md-4').addClass('bgFade2');
     $('#slideshow').removeClass('landingBlur');
     // var more = '<h3 id="calendar"><i id="more" class="fa fa-calendar-plus-o"></i></h3>'
-    var temp = info.current_observation.temp_f + '\u00B0';
+    var temp = '<div id="usersWeather">' + info.current_observation.temp_f + '\u00B0 </div>';
     // + more;
 
     $temp.append(temp);
@@ -121,9 +122,9 @@ function weatherIcon(conditions) {
   } else if (conditions === "fog"){
     $temp.prepend('<i class="wi wi-fog"></i>');
   } else if (conditions === "partly-cloudy-day"){
-    $temp.prepend('<i class="wi wi-day-cloudy"></i>');
+    $('#usersWeather').animate({left: "+=10px"},100,function(){$temp.prepend('<i class="wi wi-day-cloudy"></i>');}); console.log('done');
   } else if (conditions === "partly-cloudy-night"){
-    $temp.prepend('<i class="wi wi-night-partly-cloudy"></i>');
+    $('#usersWeather').animate({left: "+=10px"},100,function(){$temp.prepend('<i class="wi wi-night-partly-cloudy"></i>');}); console.log('done');
   } else if (conditions === "cloudy"){
     $temp.prepend('<i class="wi wi-cloudy"></i>');
   } else {
