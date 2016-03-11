@@ -4,6 +4,7 @@ var today = moment().format("[today] h:mm a");
 var apiVal;
 var $weatherDeets = $('#weatherDetails');
 var $back = $('#back');
+var temp;
 
 $('#click').on("click", function(){
   apiVal = $('#state').val() + "/" + $('#city').val() + "/" + $('#zip').val() + ".json";
@@ -16,7 +17,7 @@ function backgrounds() {
 	fx: 'fade',
 	pager: '#smallnav',
 	pause:   1,
-	speed: 2500,
+	speed: 3500,
 	timeout:  3500
 	});
 }
@@ -67,15 +68,13 @@ function rowWeather(string){
 
 // User's Weather
 function displayForecast(info) {
-    $input.empty();
+    $input.slideUp(100);
 
-    $('section .col-md-4').addClass('bgFade2');
+    $('#background').addClass('bgFade2');
     $('#slideshow').removeClass('landingBlur');
     // var more = '<h3 id="calendar"><i id="more" class="fa fa-calendar-plus-o"></i></h3>'
-    var temp = '<div id="usersWeather">' + info.current_observation.temp_f + '\u00B0 </div>';
+    temp =  info.current_observation.temp_f + '\u00B0';
     // + more;
-
-    $temp.append(temp);
     // $temp.append(temp);
 
     // $('#more').on('click', function(){
@@ -122,12 +121,14 @@ function weatherIcon(conditions) {
   } else if (conditions === "fog"){
     $temp.prepend('<i class="wi wi-fog"></i>');
   } else if (conditions === "partly-cloudy-day"){
-    $('#usersWeather').animate({left: "+=10px"},100,function(){$temp.prepend('<i class="wi wi-day-cloudy"></i>');}); console.log('done');
+    $('#usersWeather').animate({left: "+=20px"},100,function(){$temp.prepend('<i class="wi wi-day-cloudy"></i>');}); console.log('done');
   } else if (conditions === "partly-cloudy-night"){
-    $('#usersWeather').animate({left: "+=10px"},100,function(){$temp.prepend('<i class="wi wi-night-partly-cloudy"></i>');}); console.log('done');
+    $temp.prepend('<i class="wi wi-night-partly-cloudy"></i>');
+     console.log('done');
   } else if (conditions === "cloudy"){
     $temp.prepend('<i class="wi wi-cloudy"></i>');
   } else {
     $temp.prepend('<i class="wi wi-thermometer-exterior"></i>');
   }
+  $temp.append(temp);
 }

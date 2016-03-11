@@ -125,13 +125,15 @@ section, section * {
 }
 
 .bgFade2 {
-  border-radius: 25px;
+  border-radius: 20px;
   padding-top: 25px;
-  background: rgba(0, 0, 0, 0.6);
-  max-width: 368px;
-  min-width: 368px;
+  background: rgba(0, 0, 0, 0.3);
+  max-width: 325px;
+  min-width: 325px;
+  max-height: 140px;
+  min-height: 150px;
+  box-shadow: 0 12px 12px 5px rgba(0, 0, 0, .4);
 }
-
 /*#calendar {
   display: inline-block;
   position: absolute;
@@ -206,7 +208,12 @@ input {
   -webkit-filter: brightness(1.2);
 }
 
-#usersWeather {
-  display: inline-block;
-  position: relative; 
+#temp {
+  position: relative;
+  bottom: 13px;
+  left: 2px;
+}
+
+i {
+  margin-right: 7px;
 }
