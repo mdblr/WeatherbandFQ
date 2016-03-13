@@ -11,6 +11,7 @@ var $reset = $('#reset');
 $('#click').on("click", function(){
   apiVal = $('#state').val() + "/" + $('#city').val() + "/" + $('#zip').val() + ".json";
   $('#slideshow').removeClass('landingBlur');
+  // $('#creds').fadeOut();
   weatherUnderG(apiVal);
 });
 
@@ -81,7 +82,7 @@ function displayForecast(info) {
     $.when($input.fadeOut(320)).then(function(){
       $('#background').addClass('bgFade2');
       $('#background').fadeIn();
-      
+
     });
 }
 
@@ -102,6 +103,7 @@ function bgWeatherFX(conditions) {
 }
 
 function weatherIcon(conditions) {
+
   if (conditions === "clear-day") {
     $temp.prepend('<i class="wi wi-day-sunny"></i>');
   } else if (conditions === "clear-night"){
@@ -128,6 +130,9 @@ function weatherIcon(conditions) {
   $temp.append(temp);
   $temp.fadeIn(400);
   $('summary').append(summary);
+  $reset.fadeIn(200);
+  $('footer').fadeIn(400);
+
 }
 
 function reset(){

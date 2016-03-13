@@ -10,7 +10,6 @@ section, section * {
 footer {
   position: relative;
   top: 355px;
-  display: none;
 }
 
 
@@ -18,11 +17,10 @@ footer {
   color: red;
 }
 
-/*#reset {
-  display: inline-block;
-  /*position: fixed;*/
-  /*left: 1350px;*/
-/*}/*/
+#reset {
+  display: none;
+  left: 1350px;
+}
 
 /*landing page*/
 
@@ -64,7 +62,7 @@ input {
 #temp {
   display: none;
   position: relative;
-  bottom: 13px;
+  bottom: 14px;
   left: 2px;
 }
 
@@ -82,8 +80,8 @@ i {
   border-radius: 20px;
   padding-top: 25px;
   background: rgba(0, 0, 0, 0.4);
-  max-width: 325px;
-  min-width: 325px;
+  max-width: 350px;
+  min-width: 350px;
   max-height: 140px;
   min-height: 150px;
   box-shadow: 0 12px 12px 5px rgba(0, 0, 0, .2);
