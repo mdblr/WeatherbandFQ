@@ -24,7 +24,7 @@ function backgrounds() {
 	$('#slideshow').cycle({
 	fx: 'fade',
 	pager: '#smallnav',
-	pause:   1,
+	pause:   0,
 	speed: 3500,
 	timeout:  3500
 	});
