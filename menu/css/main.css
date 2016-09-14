@@ -2,13 +2,14 @@
   box-sizing: border-box;
 }
 
-#menu {
+#pane {
   position: absolute;
   left: 0;
   top: 0;
   background-color: #000;
   width: 100vw;
 }
+
 
 .init {
   height: 80vh;
@@ -38,6 +39,7 @@ form input, form a {
 
 .bar {
   width: 15vw;
+  min-width: 2.8vw !important;
   border-bottom: 1px white solid;
   margin: .2em;
 }
@@ -54,4 +56,11 @@ form {
 #new {
   display: none;
   position: absolute;
+  background-color: #000;
+  color: #fff;
+  padding: 1vh .56vw;
+}
+
+#submit {
+  margin: .2em auto;
 }
