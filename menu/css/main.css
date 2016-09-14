@@ -50,3 +50,8 @@ input {
 form {
   position: relative;
 }
+
+#new {
+  display: none;
+  position: absolute;
+}
