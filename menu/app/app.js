@@ -1,7 +1,7 @@
 (function () {
   let vis = true;
   let $form = $('form');
-  let $submit = $('#click');
+  let $submit = $('#submit');
 
   //when menu is open listen to $submit
   $submit.click(e => {
@@ -9,7 +9,7 @@
     menu(vis, $form);
 
     if (vis) {
-      closedListener(e, $form);
+      closedListener(e, '#new');
     };
 
     vis = !vis;
@@ -22,9 +22,9 @@
     manForm(vis, form);
   };
 
-  function closedListener(e, $form) {
+  function closedListener(e, target) {
     e.stopPropagation();
-    $($form).on('click', () => {
+    $(target).on('click', () => {
       menu(vis, $form);
       vis = !vis;
       $form.off('click');
@@ -32,23 +32,23 @@
   }
 
   function manPane(vis) {
-    const $menu = $('#menu');
+    const $pane = $('#pane');
+    const $menu = $('#menu')
 
     if (vis) {
-      $menu.animate({'height': '8vh'});
-      $menu.removeClass('init');
+      $pane.animate({'height': '8vh'});
+      $pane.removeClass('init');
+      $menu.append('<div id="new">New Location</div>');
+      $('#new').css({'top': '8vh', 'left' : '0'});
+      $menu.hover(() => {
+        $('#new').show();
+      });
+      $pane.mouseleave(() => {
+        $('#new').hide();
+      });
     }
     else {
-      $menu.animate({'height': '80vh'});
-    }
-
-    if (vis) {
-      $('body').append('<div id="new">New Location</div>');
-      $('#new').css('top', '8vh');
-      // $menu.hover(() => {
-      //   $('#new').slideDown();
-      // })
-    } else {
+      $pane.animate({'height': '80vh'});
       $('#new').remove();
     }
   };
@@ -56,11 +56,11 @@
   function manForm(vis, form) {
     const $inputs = $('input'),
           $bars = $('.bar'),
-          $submit = $('#click');
+          $submit = $('#submit');
 
     if (vis) {
       let left_c = 50 - (((form.width()/5.35714286)/$('body').width()) * 100);
-      form.animate({left: ~left_c + 'vw' });
+      form.animate({left: `${~left_c}vw`});
     } else {
       form.animate({left: 0});
     }
