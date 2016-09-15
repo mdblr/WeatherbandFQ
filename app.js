@@ -30,8 +30,19 @@ function backgrounds() {
 	});
 }
 
+
+
 $('document').ready(function(){
   backgrounds();
+
+  var link = document.querySelector('link[rel="import"]');
+  link.addEventListener('load', function(e) {
+    var importedDoc = link.import;
+    // importedDoc points to the document under component.html
+  });
+
+  console.log(link.import);
+  console.log($('#locate').text());
 });
 
 

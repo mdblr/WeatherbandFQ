@@ -9,7 +9,7 @@
     <!-- erik flowers weather icons -->
     <link rel="stylesheet" href="CSS/weather-icons.css">
     <link rel="stylesheet" href="CSS/weather-icons.min.css">
-
+    <link rel='import' href="location.html" />
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -35,7 +35,9 @@
         <div id="nina" class="bgM"/></div>
         <div id="prince" class="bgM"/></div>
       </div>
+
       <section id="main" class="col-md-12">
+
         <div id="input">
           <main class="col-md-offset-5 col-md-2 col-md-offset-5 bgFade">
             <section class="form-group">
@@ -47,7 +49,7 @@
               <input id="state" type="text" class="form-control" placeholder="e.g., WA" required>
             </section>
             <section class="form-group">
-              <label > ZIP:</label>
+              <label> ZIP:</label>
               <input id="zip" type="text" class="form-control" placeholder="e.g., 98109">
             </section>
             <section class="form-group">
@@ -55,13 +57,16 @@
             </section>
           </main>
         </div>
+
         <main class="col-md-offset-4 col-md-4 col-md-offset-4">
           <div id="background">
             <section id='temp' class="todaysTemp lead"></section>
             <summary></summary>
           </div>
         </main>
+
       </section>
+
       <footer>
         <aside class="col-md-8">
           <h5 id="creds" class="text-right">weather provided by <a href="https://www.wunderground.com/">Weather Underground</a> and <a href="forecast.io">Forecast.io</a></h5>
@@ -70,6 +75,7 @@
           <h5 id="reset" class="text-right">New Query</h5>
         </main>
       </footer>
+
     </section>
 
     <!-- moment.js -->

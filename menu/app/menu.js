@@ -1,13 +1,35 @@
-(function () {
+( () => {
   let vis = true;
   let $form = $('form');
   let $submit = $('#submit');
+  let $inputs = $('input');
 
   //when menu is open listen to $submit
   $submit.click(e => {
+    let formInput, coordsParams,
+        coordsAJAX, coords,
+        weatherAJAX, weather;
+
+    formInput = [];
+    for (let i = 0; i < $inputs.length; i++) {
+      if ($inputs.eq(i).val().trim()) formInput.push($inputs.eq(i).val());
+    }
+
+    coordsParams = forecast.stringParamsCoords(formInput);
+
+    if(!coordsParams) return false;
+    coordsAJAX = forecast.coordsAPI(coordsParams);
+    coordsAJAX.then( res => {
+      coords = res.current_observation.ob_url.split('=')[1];
+      weatherAJAX = forecast.weatherAPI(coords);
+      return weatherAJAX;
+    })
+    .then( resTwo => {
+      weather = resTwo;
+      console.log('weather',resTwo);
+    });
 
     menu(vis, $form);
-
     if (vis) {
       closedListener(e, '#new');
     };

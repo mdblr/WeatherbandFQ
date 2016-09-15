@@ -4,30 +4,33 @@
     <meta charset='utf-8'>
     <title></title>
     <link rel='stylesheet' href='css/main.css' />
-    <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css'> -->
   </head>
   <body>
 
-    <header id='menu' class='r center init'>
+    <header id='pane' class='r center init'>
 
-      <form class='c'>
-        <section class='bar'>
-          <input id='city' type='text' placeholder='city'>
-        </section>
-        <section class='bar'>
-          <input id="state" type="text" placeholder='state'>
-        </section>
-        <section class='bar'>
-          <input id="zip" type="text" placeholder='zip'>
-        </section>
-        <section>
-          <a id="click">Go</a>
-        </section>
-      </form>
-
+      <main id='menu'>
+        <form class='c'>
+          <section class='bar'>
+            <input id='city' type='text' placeholder='city'>
+          </section>
+          <section class='bar'>
+            <input id="state" type="text" placeholder='state'>
+          </section>
+          <section class='bar'>
+            <input id="zip" type="text" placeholder='zip'>
+          </section>
+          <section>
+            <a id="submit">Go</a>
+          </section>
+        </form>
+      </main>
     </header>
 
+
+
     <script src='https://code.jquery.com/jquery-3.1.0.js'></script>
-    <script src='app/app.js'></script>
+    <script src='app/forecast.js'></script>
+    <script src='app/menu.js'></script>
   </body>
 </html>
