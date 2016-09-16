@@ -1,4 +1,4 @@
-( () => {
+(() => {
   let $form = $('form');
   let $setLoc = $('#submit');
   let $resetLoc = $('#new');
@@ -22,6 +22,7 @@
       .then( resTwo => {
         weather = resTwo;
         menu.close()
+        form.clear($inputs);
       })
       .catch( err => {
         console.log('err', err);
@@ -32,6 +33,16 @@
     menu.open();
   });
 
-  menu.dropdown();
+  menu.mtDropdown();
+
+  // background-carousel plugin
+
+	$('#background-carousel').cycle({
+	fx: 'fade',
+	pager: '#smallnav',
+	pause:   0,
+	speed: 3500,
+	timeout:  3500
+	});
 
 })();

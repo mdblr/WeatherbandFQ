@@ -7,31 +7,46 @@
   </head>
   <body>
 
-    <header id='pane' class='r center init'>
+      <header id='pane' class='r center init'>
+          <main id='menu'>
+            <form class='c'>
+              <section class='bar'>
+                <input id='city' type='text' placeholder='city'>
+              </section>
+              <section class='bar'>
+                <input id="state" type="text" placeholder='state'>
+              </section>
+              <section class='bar'>
+                <input id="zip" type="text" placeholder='zip'>
+              </section>
+              <section>
+                <a id="submit">Go</a>
+              </section>
+            </form>
+            <div id="new">New Location</div>
+          </main>
+      </header>
 
-      <main id='menu'>
-        <form class='c'>
-          <section class='bar'>
-            <input id='city' type='text' placeholder='city'>
-          </section>
-          <section class='bar'>
-            <input id="state" type="text" placeholder='state'>
-          </section>
-          <section class='bar'>
-            <input id="zip" type="text" placeholder='zip'>
-          </section>
-          <section>
-            <a id="submit">Go</a>
-          </section>
-        </form>
-        <div id="new">New Location</div>
-      </main>
-    </header>
+      <div id="background-carousel">
+        <div id="selena1" class='bgs-cv bgr-n bgp-c'></div>
+        <div id="dh1" class='bgs-cv bgr-n bgp-c'></div>
+        <div id="sioux" class='bgs-cv bgr-n bgp-c'></div>
+        <div id="atcq" class='bgs-cv'></div>
+        <div id="bowie" class='bgs-cv'></div>
+        <div id="gjones" class='bgs-cn bgr-n bgp-c'></div>
+        <div id="hendrix" class='bgs-cv bgp-c'></div>
+        <div id="mercury" class='bgs-cv bgp-l'></div>
+        <div id="loureed" class='bgs-cn bgp-r'></div>
+        <div id="morrissey" class='bgs-cv bgr-n bgp-l'></div>
+        <div id="nina" class='bgs-cn bgr-x bgp-c'></div>
+        <div id="prince" class='bgs-cv'></div>
+      </div>
 
     <script src='https://code.jquery.com/jquery-3.1.0.js'></script>
     <script src='./js/menu.js'></script>
     <script src='./js/form.js'></script>
     <script src='./js/forecast.js'></script>
+    <script src='./js/cycle.js'></script>
     <script src='app.js'></script>
 
   </body>

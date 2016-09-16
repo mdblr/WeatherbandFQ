@@ -3,7 +3,7 @@ const menu = (() => {
   return {
     open,
     close,
-    dropdown
+    mtDropdown
   }
 
   /// functions open, close, dropdown
@@ -45,7 +45,7 @@ const menu = (() => {
     }
   }
 
-  function dropdown() {
+  function mtDropdown() {
     const $newLocation = $('#new'),
     $submit = $('#submit'),
     $pane = $('#pane'),

@@ -1,6 +1,8 @@
 const form = (() => {
+
   return {
-    getValues
+    getValues,
+    clear
   }
 
   function getValues($inputs) {
@@ -11,6 +13,14 @@ const form = (() => {
       }
     }
     return arr;
+  }
+
+  function clear($inputs) {
+    for (let i = 0; i < $inputs.length; i++) {
+      if ($inputs.eq(i).val().trim()) {
+        $inputs.eq(i).val('');
+      }
+    }
   }
 
 })();

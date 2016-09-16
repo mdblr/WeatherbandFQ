@@ -10,7 +10,6 @@
   width: 100vw;
 }
 
-
 .init {
   height: 80vh;
 }
@@ -57,7 +56,7 @@ form {
   display: none;
   position: absolute;
   top: 8vh;
-  left: 0vw; 
+  left: 0vw;
   background-color: #000;
   color: #fff;
   padding: 1vh .56vw;
@@ -65,4 +64,92 @@ form {
 
 #submit {
   margin: .2em auto;
+}
+
+#background-carousel, #background-carousel > * {
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 8vh;
+  left: 0;
+  z-index:-9999;
+  animation:move 7s ease infinite;
+}
+
+.bgs-cv {
+  background-size: cover;
+}
+
+.bgs-cn {
+  background-size: contain;
+}
+
+.bgr-n {
+  background-repeat: no-repeat;
+}
+
+.bgr-x {
+  background-repeat: repeat-x;
+}
+
+.bgp-c {
+  background-position: center;
+}
+
+.bgp-r {
+  background-position: right;
+}
+
+.bgp-l {
+  background-position: left;
+}
+
+#selena1 {
+  background-image: url(./assets/selena1.jpg);
+}
+
+#dh1 {
+  background-image: url(./assets/dharry2.jpg);
+}
+
+#sioux{
+  background-image: url(./assets/1118full-siouxsie-sioux.jpg);
+}
+
+#atcq{
+  background-image: url(./assets/atcq1.jpg);
+}
+
+#bowie{
+  background-image: url(./assets/DAVID-BOWIE-PENDANT-SA-TOURNEE-MONDIALE-1976.jpg);
+}
+
+#gjones{
+  background-image: url(./assets/gj_snow.jpg);
+}
+
+#hendrix{
+  background-image: url(./assets/jh2.jpg);
+}
+
+#mercury{
+  background-image: url(./assets/jimhutton_freddiemercury.jpg);
+}
+
+#loureed{
+  background-image: url(./assets/loureed.jpg);
+}
+
+#morrissey{
+  background-image: url(./assets/morrissey.jpg);
+}
+
+#nina{
+  background-image: url(./assets/ns2.jpg);
+}
+
+#prince{
+  background-image: url(./assets/prince-04.jpg);
 }

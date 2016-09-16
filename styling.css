@@ -130,7 +130,7 @@ color: red;
 }
 
 /*background carousel*/
-#slideshow, div.bgM {
+#slideshow > * {
   min-height: 100%;
   min-width: 1024px;
   width: 100%;
