@@ -6,15 +6,15 @@
   reset();
 
   function submit() {
+
     const $setLoc = $('#submit'),
           $inputs = $('input'),
           $err = $('#error');
-    let triggered = false;
+    let eventDisable = false;
 
-    $setLoc.click(e => {
-
-      if (triggered) return;
-      else triggered = true;
+    $setLoc.on('click keydown', e => {
+      if (!(e.which === 1 || e.which === 13) || eventDisable) return;
+      else eventDisable = true;
 
       if ($err.is(':visible')) $err.hide();
 
@@ -40,14 +40,17 @@
                     dash.set(weather);
                     menu.close();
                     form.clear($inputs);
+                  })
+                  .catch( err => {
+                    throw new Error('Problem with weather service.');
                   });
         })
         .catch( err => {
-          form.showErr($err);
+          form.showErr($err, err);
           $err.show();
         })
         .then(() => {
-          triggered = false;
+          eventDisable = false;
         });
     });
   }
