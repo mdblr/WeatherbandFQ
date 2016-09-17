@@ -3,12 +3,15 @@
   <head>
     <meta charset='utf-8'>
     <title></title>
-    <link rel='stylesheet' href='css/main.css' />
+    <link rel='stylesheet' href='assets/main.css' />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis|Josefin+Sans|Josefin+Slab:600|Monoton|Nixie+One|PT+Sans+Caption">
   </head>
   <body>
 
+    <!-- menu -->
+
       <header id='pane' class='r center init'>
-          <main id='menu'>
+          <main id='menu' class='nixie-one'>
             <form class='c'>
               <section class='bar'>
                 <input id='city' type='text' placeholder='city'>
@@ -20,12 +23,20 @@
                 <input id="zip" type="text" placeholder='zip'>
               </section>
               <section>
-                <a id="submit">Go</a>
+                <a id="submit" class='nixie-one'>Go</a>
               </section>
             </form>
             <div id="new">New Location</div>
           </main>
       </header>
+
+      <!-- dash -->
+
+      <main id='dash' class='c center'>
+        <section id='temp' class='r dosis'></section>
+      </main>
+
+      <!-- imgs -->
 
       <div id="background-carousel">
         <div id="selena1" class='bgs-cv bgr-n bgp-c'></div>
@@ -42,12 +53,15 @@
         <div id="prince" class='bgs-cv'></div>
       </div>
 
-    <script src='https://code.jquery.com/jquery-3.1.0.js'></script>
-    <script src='./js/menu.js'></script>
-    <script src='./js/form.js'></script>
-    <script src='./js/forecast.js'></script>
-    <script src='./js/cycle.js'></script>
-    <script src='app.js'></script>
+      <!-- scripts -->
+      
+      <script src='https://code.jquery.com/jquery-3.1.0.js'></script>
+      <script src='./js/cycle.js'></script>
+      <script src='./js/forecast.js'></script>
+      <script src='./js/form.js'></script>
+      <script src='./js/dash.js'></script>
+      <script src='./js/menu.js'></script>
+      <script src='app.js'></script>
 
   </body>
 </html>
