@@ -1,0 +1,187 @@
+* {
+  box-sizing: border-box;
+}
+
+#pane {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #000;
+  opacity: .8;
+  width: 100vw;
+}
+
+.init {
+  height: 80vh;
+}
+
+.r, .r > * {
+  display: flex;
+  flex-direction: row;
+}
+
+.c, .c > * {
+  display: flex;
+  flex-direction: column;
+}
+
+.center, .center > * {
+  justify-content: center;
+  align-items: center;
+}
+
+
+form input, form a {
+  color: white;
+  background-color: inherit;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+.bar {
+  width: 15vw;
+  min-width: 2.8vw !important;
+  border-bottom: 1px white solid;
+  margin: .2em;
+}
+
+input {
+  height: 1.5em;
+  width: 15vw;
+}
+
+form {
+  position: relative;
+}
+
+#new {
+  display: none;
+  position: absolute;
+  top: 4.5vh;
+  left: 0vw;
+  background-color: #000;
+  color: #fff;
+  padding: 1vh .56vw;
+}
+
+#submit {
+  margin: 1em auto;
+}
+
+/* dash css */
+
+#dash {
+  height: 94.5vh;
+  width: 98vw;
+}
+
+#temp {
+  font-size: 65vh;
+  color: #00E1FA;
+  border-bottom: 2vh solid #9600FA;
+}
+
+.dosis {
+  font-family: 'Dosis', sans-serif;
+}
+
+.josefin-sans {
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.nixie-one, .nixie-one > * {
+  font-family: 'Nixie One', cursive;
+}
+
+/* background css */
+
+#background-carousel, #background-carousel > * {
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 4.5vh;
+  left: 0;
+  z-index:-9999;
+  animation:move 7s ease infinite;
+}
+
+.bgs-cv {
+  background-size: cover;
+}
+
+.bgs-cn {
+  background-size: contain;
+}
+
+.bgr-n {
+  background-repeat: no-repeat;
+}
+
+.bgr-x {
+  background-repeat: repeat-x;
+}
+
+.bgp-c {
+  background-position: center;
+}
+
+.bgp-r {
+  background-position: right;
+}
+
+.bgp-l {
+  background-position: left;
+}
+
+#selena1 {
+  background-image: url(./imgs/selena1.jpg);
+}
+
+#dh1 {
+  background-image: url(./imgs/dharry2.png);
+}
+
+#sioux{
+  background-image: url(./imgs/1118full-siouxsie-sioux.jpg);
+}
+
+#atcq{
+  background-image: url(./imgs/atcq1.jpg);
+}
+
+#bowie{
+  background-image: url(./imgs/DAVID-BOWIE-PENDANT-SA-TOURNEE-MONDIALE-1976.jpg);
+}
+
+#gjones{
+  background-image: url(./imgs/gj_snow.jpg);
+}
+
+#hendrix{
+  background-image: url(./imgs/jh2.jpg);
+}
+
+#mercury{
+  background-image: url(./imgs/jimhutton_freddiemercury.jpg);
+}
+
+#loureed{
+  background-image: url(./imgs/loureed.jpg);
+}
+
+#morrissey{
+  background-image: url(./imgs/morrissey.jpg);
+}
+
+#nina{
+  background-image: url(./imgs/ns2.jpg);
+}
+
+#prince{
+  background-image: url(./imgs/prince-04.jpg);
+}
