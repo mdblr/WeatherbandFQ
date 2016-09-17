@@ -10,7 +10,7 @@
 
     <!-- menu -->
 
-      <header id='pane' class='r center init'>
+      <header id='pane' class='c center init'>
           <main id='menu' class='nixie-one'>
             <form class='c'>
               <section class='bar'>
@@ -23,10 +23,11 @@
                 <input id="zip" type="text" placeholder='zip'>
               </section>
               <section>
-                <a id="submit" class='nixie-one'>Go</a>
+                <a id='submit' class='nixie-one'>Go</a>
               </section>
             </form>
-            <div id="new">New Location</div>
+            <section id='new'>New Location</section>
+            <aside id='error'></aside>
           </main>
       </header>
 
@@ -54,7 +55,7 @@
       </div>
 
       <!-- scripts -->
-      
+
       <script src='https://code.jquery.com/jquery-3.1.0.js'></script>
       <script src='./js/cycle.js'></script>
       <script src='./js/forecast.js'></script>

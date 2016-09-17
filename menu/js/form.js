@@ -2,7 +2,8 @@ const form = (() => {
 
   return {
     getValues,
-    clear
+    clear,
+    showErr
   }
 
   function getValues($inputs) {
@@ -26,6 +27,10 @@ const form = (() => {
         $inputs.eq(i).val('');
       }
     }
+  }
+
+  function showErr($domE) {
+    $domE.text('An error occured getting your forecast! Sorry bout that.');
   }
 
 })();

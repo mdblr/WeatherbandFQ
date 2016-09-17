@@ -7,13 +7,16 @@
 
   function submit() {
     const $setLoc = $('#submit'),
-          $inputs = $('input');
+          $inputs = $('input'),
+          $err = $('#error');
     let triggered = false;
 
     $setLoc.click(e => {
 
       if (triggered) return;
       else triggered = true;
+
+      if ($err.is(':visible')) $err.hide();
 
       let formInput, locString,
           coordsAJAX, coords,
@@ -25,19 +28,26 @@
 
       coordsAJAX
         .then( res => {
+
+          if (res.response.error) throw new Error('invalid input');
+
           coords = forecast.splitCoordsRes(res);
           weatherAJAX = forecast.weatherAPI(coords);
-          return weatherAJAX;
-        })
-        .then( res => {
-          weather = res;
-          dash.set(weather);
-          menu.close();
-          form.clear($inputs);
-          triggered = false;
+
+          return weatherAJAX
+                  .then( res => {
+                    weather = res;
+                    dash.set(weather);
+                    menu.close();
+                    form.clear($inputs);
+                  });
         })
         .catch( err => {
-          console.log('err', err);
+          form.showErr($err);
+          $err.show();
+        })
+        .then(() => {
+          triggered = false;
         });
     });
   }
