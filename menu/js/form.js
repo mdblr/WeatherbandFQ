@@ -7,6 +7,7 @@ const form = (() => {
   }
 
   function getValues($inputs) {
+    if ($inputs.length < 1) throw new Error('Form is empty')
     let arr = [];
     for (let i = 0; i < $inputs.length; i++) {
       if ($inputs.eq(i).val().trim()) {
@@ -29,8 +30,8 @@ const form = (() => {
     }
   }
 
-  function showErr($domE) {
-    $domE.text('An error occured getting your forecast! Sorry bout that.');
+  function showErr($domE, err) {
+    $domE.text(`An error occured getting your forecast! Computer says, "${err}"`);
   }
 
 })();
