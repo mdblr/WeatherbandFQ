@@ -30,7 +30,6 @@
   align-items: center;
 }
 
-
 form input, form a {
   color: white;
   background-color: inherit;
@@ -44,8 +43,8 @@ input:focus {
 .bar {
   width: 15vw;
   min-width: 2.8vw !important;
-  border-bottom: 1px white solid;
-  margin: .2em;
+  border-bottom: 2px white solid;
+  margin: .26em;
 }
 
 input {
@@ -69,6 +68,11 @@ form {
 
 #submit {
   margin: 1em auto;
+}
+
+#error {
+  display: none;
+  color: white;
 }
 
 /* dash css */
