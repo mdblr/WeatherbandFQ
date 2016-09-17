@@ -16,7 +16,7 @@ const menu = (() => {
           $dropdown = $('#new');
 
     $dropdown.hide();
-    $pane.animate({'height': '80vh'});
+    $pane.animate({'height': '100vh'});
     $form.animate({left: 0});
     $submit.slideDown();
     for (var i = 0; i < $inputs.length; i++) {
