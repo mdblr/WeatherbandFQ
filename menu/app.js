@@ -1,48 +1,79 @@
 (() => {
-  let $form = $('form');
-  let $setLoc = $('#submit');
-  let $resetLoc = $('#new');
-  let $inputs = $('input');
 
-  //event listenters, AJAX;
-  $setLoc.click(e => {
-    let formInput, locString,
-        coordsAJAX, coords,
-        weatherAJAX, weather;
+  loadBackgrounds();
+  mtDropdown();
+  submit();
+  reset();
 
-    formInput = form.getValues($inputs);
-    locString = forecast.stringLocParams(formInput);
-    coordsAJAX = forecast.coordsAPI(locString);
-    coordsAJAX
-      .then( res => {
-        coords = res.current_observation.ob_url.split('=')[1];
-        weatherAJAX = forecast.weatherAPI(coords);
-        return weatherAJAX;
-      })
-      .then( resTwo => {
-        weather = resTwo;
-        menu.close()
-        form.clear($inputs);
-      })
-      .catch( err => {
-        console.log('err', err);
-      });
-  });
+  function submit() {
+    const $setLoc = $('#submit'),
+          $inputs = $('input');
+    let triggered = false;
 
-  $resetLoc.click( () => {
-    menu.open();
-  });
+    $setLoc.click(e => {
 
-  menu.mtDropdown();
+      if (triggered) return;
+      else triggered = true;
 
-  // background-carousel plugin
+      let formInput, locString,
+          coordsAJAX, coords,
+          weatherAJAX, weather;
 
-	$('#background-carousel').cycle({
-	fx: 'fade',
-	pager: '#smallnav',
-	pause:   0,
-	speed: 3500,
-	timeout:  3500
-	});
+      formInput = form.getValues($inputs);
+      locString = forecast.stringLocParams(formInput);
+      coordsAJAX = forecast.coordsAPI(locString);
+
+      coordsAJAX
+        .then( res => {
+          coords = forecast.splitCoordsRes(res);
+          weatherAJAX = forecast.weatherAPI(coords);
+          return weatherAJAX;
+        })
+        .then( res => {
+          weather = res;
+          dash.set(weather);
+          menu.close();
+          form.clear($inputs);
+          triggered = false;
+        })
+        .catch( err => {
+          console.log('err', err);
+        });
+    });
+  }
+
+  function reset() {
+    const $resetLoc = $('#new');
+
+    $resetLoc.click( () => {
+      menu.open();
+    });
+  }
+
+  function mtDropdown() {
+    const $newLocation = $('#new'),
+          $submit = $('#submit'),
+          $pane = $('#pane'),
+          $menu = $('#menu');
+
+    $menu.hover(() => {
+      if ($submit.is(':visible')) return;
+      $newLocation.show();
+    });
+
+    $pane.mouseleave(() => {
+      $newLocation.hide();
+    })
+  }
+
+  function loadBackgrounds() {
+    $('#background-carousel').cycle({
+      fx: 'fade',
+      pager: '#smallnav',
+      pause:   0,
+      speed: 3500,
+      timeout:  3500
+    });
+  }
 
 })();

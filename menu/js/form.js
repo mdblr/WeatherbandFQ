@@ -12,6 +12,11 @@ const form = (() => {
         arr.push($inputs.eq(i).val());
       }
     }
+
+    // param order for api requires state val first
+    let city = arr [0];
+    arr[0] = arr[1];
+    arr[1] = city;
     return arr;
   }
 

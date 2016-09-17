@@ -2,11 +2,10 @@ const menu = (() => {
 
   return {
     open,
-    close,
-    mtDropdown
+    close
   }
 
-  /// functions open, close, dropdown
+  /// functions open, close
 
   function open() {
     const $inputs = $('input'),
@@ -33,32 +32,15 @@ const menu = (() => {
           $pane = $('#pane'),
           $form = $('form'),
           $dropdown = $('#new');
-
     let left_c = 50 - ((($form.width()/5.35714286)/$('body').width()) * 100);
 
-    $pane.animate({'height': '8vh'});
+    $pane.animate({'height': '4.5vh'});
     $form.animate({left: `${~left_c}vw`});
     $submit.slideUp();
     for (var i = 0; i < $inputs.length; i++) {
       $inputs.eq(i).slideUp();
       $bars.eq(i).animate({'width':'2.8vw'});
     }
-  }
-
-  function mtDropdown() {
-    const $newLocation = $('#new'),
-    $submit = $('#submit'),
-    $pane = $('#pane'),
-    $menu = $('#menu');
-
-    $menu.hover(() => {
-      if ($submit.is(':visible')) return;
-      $newLocation.show();
-    });
-
-    $pane.mouseleave(() => {
-      $newLocation.hide();
-    })
   }
 
 })();

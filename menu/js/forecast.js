@@ -3,21 +3,26 @@ const forecast = (() => {
   return {
     stringLocParams,
     coordsAPI,
+    splitCoordsRes,
     weatherAPI
   };
 
   function stringLocParams(userInput) {
     let paramString = '';
+    
     for (let i = 0; i < userInput.length; i++) {
       userInput[i + 1] ?
       paramString += `${userInput[i]}/`:
       paramString += `${userInput[i]}.json`;
     }
+
     return paramString;
   }
 
   function coordsAPI(paramString){
-    let weatherUnderground, coordsUnparsed;
+    let weatherUnderground,
+        coordsUnparsed;
+
     weatherUnderground =
       'http://api.wunderground.com/api/a23692177cc6bae1/conditions/q/';
 
@@ -37,8 +42,14 @@ const forecast = (() => {
     return coordsUnparsed;
   };
 
+  function splitCoordsRes(response) {
+    return response.current_observation.ob_url.split('=')[1];
+  }
+
   function weatherAPI(coordsParsed) {
-    let forecastAPI, forecastRes;
+    let forecastAPI,
+        forecastRes;
+
     forecastAPI =
       "https://api.forecast.io/forecast/ec4ea27eb974f4bdcd500583b2c49367/";
 
