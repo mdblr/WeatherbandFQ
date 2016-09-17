@@ -12,7 +12,7 @@
 }
 
 .init {
-  height: 80vh;
+  height: 100vh;
 }
 
 .r, .r > * {
@@ -44,7 +44,7 @@ input:focus {
   width: 15vw;
   min-width: 2.8vw !important;
   border-bottom: 2px white solid;
-  margin: .26em;
+  margin: .24em 0;
 }
 
 input {
