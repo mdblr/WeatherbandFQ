@@ -4,23 +4,22 @@
     <meta charset='utf-8'>
     <title></title>
     <link rel='stylesheet' href='assets/main.css' />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis|Josefin+Sans|Josefin+Slab:600|Monoton|Nixie+One|PT+Sans+Caption">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis|Josefin+Sans|Nixie+One">
   </head>
   <body>
 
     <!-- menu -->
-
       <header id='pane' class='c center init'>
           <main id='menu' class='nixie-one'>
             <form class='c'>
               <section class='bar'>
-                <input id='city' type='text' placeholder='city' tabindex='1'>
+                <input id='city' type='text' placeholder='City' tabindex='1'>
               </section>
               <section class='bar'>
-                <input id="state" type="text" placeholder='state' tabindex='2'>
+                <input id="state" type="text" placeholder='State' tabindex='2'>
               </section>
               <section class='bar'>
-                <input id="zip" type="text" placeholder='zip' tabindex='3'>
+                <input id="zip" type="text" placeholder='Zip' tabindex='3'>
               </section>
               <section>
                 <a id='submit' class='nixie-one' tabindex='4'>Get Weather</a>
@@ -34,7 +33,12 @@
       <!-- dash -->
 
       <main id='dash' class='c center'>
-        <section id='temp' class='r dosis'></section>
+        <div id='views'>
+          <i id='more' class="fa fa-chevron-up fa-4x" aria-hidden="true"></i>
+          <section id='current' class='r dosis'></section>
+          <section id='forecast' class='r nixie-one'>I'm a section too!</section>
+          <i id='less' class="fa fa-chevron-down fa-4x" aria-hidden="true"></i>
+        </div>
       </main>
 
       <!-- imgs -->
@@ -57,6 +61,7 @@
       <!-- scripts -->
 
       <script src='https://code.jquery.com/jquery-3.1.0.js'></script>
+      <script src="https://use.fontawesome.com/d2bbb641f0.js"></script>
       <script src='./js/cycle.js'></script>
       <script src='./js/forecast.js'></script>
       <script src='./js/form.js'></script>
