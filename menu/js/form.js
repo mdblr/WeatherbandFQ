@@ -31,7 +31,7 @@ const form = (() => {
   }
 
   function showErr($domE, err) {
-    $domE.text(`An error occured getting your forecast! Computer says, "${err}"`);
+    $domE.text(`Something went wrong. Computer says, "${err}"`);
   }
 
 })();

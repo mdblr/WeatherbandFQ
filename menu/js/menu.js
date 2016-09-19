@@ -21,7 +21,7 @@ const menu = (() => {
     $submit.slideDown();
     for (var i = 0; i < $inputs.length; i++) {
       $inputs.eq(i).slideDown();
-      $bars.eq(i).animate({'width': '15vw'});
+      $bars.eq(i).animate({'width': '11.4vw'});
     }
   }
 
@@ -32,7 +32,7 @@ const menu = (() => {
           $pane = $('#pane'),
           $form = $('form'),
           $dropdown = $('#new');
-    let left_c = 50 - ((($form.width()/5.35714286)/$('body').width()) * 100);
+    let left_c = 50 - ((($form.width()/4.07142857)/$('body').width()) * 100);
 
     $pane.animate({'height': '4.5vh'});
     $form.animate({left: `${~left_c}vw`});

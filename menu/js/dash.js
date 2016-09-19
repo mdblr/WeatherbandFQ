@@ -1,15 +1,14 @@
 const dash = (() => {
 
   return {
-    set,
-    // reset
+    set
   }
 
   function set(data) {
-    const $temp = $('#temp')
-    $temp.text(`${data.currently.temperature}\u00B0`);
+    const $current = $('#current'),
+          $views = $('#views');
+    $current.text(`${data.currently.temperature}\u00B0`);
+    $views.animate({'top': '0'});
   }
 
-
-  // function reset() {}
 })();
