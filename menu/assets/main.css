@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+body {
+  overflow: hidden;
+}
+
 #pane {
   position: absolute;
   left: 0;
@@ -34,6 +38,7 @@ form input, form a {
   color: white;
   background-color: inherit;
   border: none;
+  width: 100%;
 }
 
 input:focus {
@@ -41,15 +46,16 @@ input:focus {
 }
 
 .bar {
-  width: 15vw;
+  width: 11.6vw;
   min-width: 2.8vw !important;
   border-bottom: 2px white solid;
-  margin: .24em 0;
+  margin: .55vh 0;
 }
 
 input {
   height: 1.5em;
   width: 15vw;
+  font-family: 'Nixie One', cursive;
 }
 
 form {
@@ -66,8 +72,16 @@ form {
   padding: 1vh .56vw;
 }
 
+#close {
+  color: #fff;
+  position: absolute;
+
+}
+
 #submit {
-  margin: 1em auto;
+  border: 1px solid #fff;
+  padding: 2em;
+  margin: 2em auto;
 }
 
 #error {
@@ -77,15 +91,32 @@ form {
 
 /* dash css */
 
+i {
+  color: #9600FA;
+  position: relative;
+  top: 10vh;
+  left: 48vw;
+}
+
 #dash {
   height: 94.5vh;
   width: 98vw;
 }
 
-#temp {
+#views {
+  position: relative;
+  top: 110vh;
+}
+
+#current {
   font-size: 65vh;
   color: #00E1FA;
   border-bottom: 2vh solid #9600FA;
+}
+
+#forecast {
+  position: relative;
+  top: 25vh;
 }
 
 .dosis {
