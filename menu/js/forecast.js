@@ -28,7 +28,6 @@ const forecast = (() => {
 
     weatherUnderground =
       'http://api.wunderground.com/api/a23692177cc6bae1/conditions/q/';
-
     coordsUnparsed =
       $.ajax({
         method: 'GET',
@@ -55,7 +54,6 @@ const forecast = (() => {
 
     forecastAPI =
       "https://api.forecast.io/forecast/ec4ea27eb974f4bdcd500583b2c49367/";
-
     forecastRes =
       $.ajax({
         method: 'GET',
