@@ -28,7 +28,7 @@
       coordsAJAX
         .then( res => {
           forecast.errorHandling(res);
-          
+
           coords = forecast.splitCoordsRes(res);
           weatherAJAX = forecast.weatherAPI(coords);
 
@@ -86,24 +86,6 @@
       speed: 3500,
       timeout:  3500
     });
-  }
-
-  function dashViews() {
-    const $showMore = $('i.fa-chevron-up'),
-          $showLess = $('i.fa-chevron-down'),
-          $current = $('#current'),
-          $forecast = $('#forecast');
-
-
-    $showMore.click(() => {
-      $current.animate({'top':'-100vh'});
-      $forecast.animate({'top':'100vh'});
-    })
-
-    $showLess.click(() => {
-      $current.animate({'top':'0'});
-      $forecast.animate({'top':'0'});
-    })
   }
 
 })();
