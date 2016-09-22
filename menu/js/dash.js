@@ -6,23 +6,21 @@ const dash = (() => {
   }
 
   function viewOne(data) {
-    const $current = $('#current'),
+    const $viewOne = $('#current'),
           $views = $('#views');
-    $current.text(`${data}\u00B0`);
+    $viewOne.text(`${data}\u00B0`);
     $views.animate({'top': '0'});
   }
 
   function stageSubViews(data) {
-    const html = dailyBasics(data),
-          pagination = showMore(html);
+    const html = dailyBasics(data);
+    let pagination = showMore(html);
 
-    if (!$('#more').is(':visible')) {
-      $('#dash').append('<section><a id="more" class="nixie-one">More</a></section>');
-    }
+    rmPriorContent();
 
-    $('#more').click(() => {
-      pagination();
-    })
+    $('#views').append('<div><a id="more" class="nixie-one">More</a></div>')
+    $('#more').click(() => { pagination(); });
+
   }
 
   function dailyBasics(oneWeek) {
@@ -40,18 +38,12 @@ const dash = (() => {
     }
 
     viewTwo +=
-      `<section class='page nixie-one fwrap'>
-        <div id='weekly' class='f1'>${sumStr}</div>
-        <div class='r'>${dailyDetails.join('')}</div>
+      `<section id='viewTwo' class='page nixie-one fwrap'>
+        <div id='description' class='f1'>${sumStr}</div>
+        <div id='summary' class='r'>${dailyDetails.join('')}</div>
       </section>`
 
     return viewTwo
-  }
-
-  function nightlyLunation() {
-    for (let i = 0; i < 7; i++) {
-      lunation.push(data.nightlyLunation[i]);
-    }
   }
 
   function showMore(subView) {
@@ -61,9 +53,23 @@ const dash = (() => {
     html.push(subView);
 
     return function() {
-      if (count > html.length) return;
       $('#views').append(html[count]);
       count++;
+      if (count === html.length) $('#more').detach();
     }
   }
+
+  function rmPriorContent() {
+    if ($('#more').is(':visible')) {
+      $('#more').detach();
+    }
+    $('#viewTwo').detach();
+  }
+
+  function nightlyLunation() {
+    for (let i = 0; i < 7; i++) {
+      lunation.push(data.nightlyLunation[i]);
+    }
+  }
+
 })();
