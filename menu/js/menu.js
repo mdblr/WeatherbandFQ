@@ -12,16 +12,16 @@ const menu = (() => {
           $bars = $('.bar'),
           $submit = $('#submit'),
           $pane = $('#pane'),
-          $form = $('form'),
-          $dropdown = $('#new');
+          $menu = $('#menu'),
+          $dropdown = $('#dropdown');
 
     $dropdown.hide();
-    $pane.animate({'height': '100vh'});
-    $form.animate({left: 0});
+    $pane.animate({'height': '100vh', 'width': '100vw'});
+    $menu.animate({'width' :'100%'});
     $submit.slideDown();
     for (var i = 0; i < $inputs.length; i++) {
       $inputs.eq(i).slideDown();
-      $bars.eq(i).animate({'width': '11.4vw'});
+      $bars.eq(i).animate({'width': '90%'});
     }
   }
 
@@ -30,16 +30,15 @@ const menu = (() => {
           $bars = $('.bar'),
           $submit = $('#submit'),
           $pane = $('#pane'),
-          $form = $('form'),
-          $dropdown = $('#new');
-    let left_c = 50 - ((($form.width()/4.07142857)/$('body').width()) * 100);
+          $menu = $('#menu'),
+          $dropdown = $('#dropdown');
 
-    $pane.animate({'height': '4.5vh'});
-    $form.animate({left: `${~left_c}vw`});
+    $pane.animate({'height': '55px', 'width': '55px'});
+    $menu.animate({'width' : '50px'});
     $submit.slideUp();
     for (var i = 0; i < $inputs.length; i++) {
       $inputs.eq(i).slideUp();
-      $bars.eq(i).animate({'width':'2.8vw'});
+      $bars.eq(i).animate({'width':'40px'});
     }
   }
 
