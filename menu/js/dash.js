@@ -16,7 +16,10 @@ const dash = (() => {
     const html = dailyBasics(data),
           pagination = showMore(html);
 
-    $('#dash').append('<section><a id="more" class="nixie-one">More</a></section>');
+    if (!$('#more').is(':visible')) {
+      $('#dash').append('<section><a id="more" class="nixie-one">More</a></section>');
+    }
+    
     $('#more').click(() => {
       pagination();
     })
