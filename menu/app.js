@@ -27,18 +27,8 @@
 
       coordsAJAX
         .then( res => {
-          if (res.response.error) throw new Error('invalid input');
-          else if (!res.current_observation) {
-            let results = res.response.results;
-            let err = 'Did you mean ';
-            for (let i = 0; i < 3; i++) {
-              i < 2 ?
-              err += `${results[i].city}, ${results[i].state} or `:
-              err += `${results[i].city}, ${results[i].state}?`;
-            }
-            throw new Error(err);
-          }
-
+          forecast.errorHandling(res);
+          
           coords = forecast.splitCoordsRes(res);
           weatherAJAX = forecast.weatherAPI(coords);
 

@@ -6,7 +6,8 @@ const forecast = (() => {
     splitCoordsRes,
     weatherAPI,
     currentTempF,
-    dailySummary
+    dailySummary,
+    errorHandling
   };
 
   function stringLocParams(userInput) {
@@ -99,5 +100,22 @@ const forecast = (() => {
     }
   }
 
+  function errorHandling(res) {
+    if (res.response.error) throw new Error('invalid input');
+    else if (!res.current_observation) {
+      let results = res.response.results,
+          err = 'Did you mean ',
+          length = (() => {
+            return results.length > 3 ? 3 : results.length;
+          })();
+
+      for (let i = 0; i < length; i++) {
+        i < length - 1 ?
+        err += `${results[i].city}, ${results[i].state} or `:
+        err += `${results[i].city}, ${results[i].state}?`;
+      }
+      throw new Error(err);
+    }
+  }
 
 })();
