@@ -31,8 +31,8 @@
           else if (!res.current_observation) {
             let results = res.response.results;
             let err = 'Did you mean ';
-            for (let i = 0; i < results.length; i++) {
-              i < results.length - 1 ?
+            for (let i = 0; i < 3; i++) {
+              i < 2 ?
               err += `${results[i].city}, ${results[i].state} or `:
               err += `${results[i].city}, ${results[i].state}?`;
             }
@@ -45,9 +45,7 @@
           return weatherAJAX
                   .then( res => {
                     weather = res;
-                    dash.set(weather);
-                    menu.close();
-                    form.clear($inputs);
+                    return weather;
                   })
                   .catch( err => {
                     throw new Error('Problem with weather service.');
@@ -57,14 +55,17 @@
           form.showErr($err, err);
           $err.show();
         })
-        .then(() => {
+        .then( weather => {
+          dash.viewOne(forecast.currentTempF(weather));
+          dash.stageSubViews(forecast.dailySummary(weather));
+          menu.close();
           eventDisable = false;
         });
     });
   }
 
   function reset() {
-    const $resetLoc = $('#new');
+    const $resetLoc = $('#dropdown');
 
     $resetLoc.click( () => {
       menu.open();
@@ -72,7 +73,7 @@
   }
 
   function mtDropdown() {
-    const $newLocation = $('#new'),
+    const $newLocation = $('#dropdown'),
           $submit = $('#submit'),
           $pane = $('#pane'),
           $menu = $('#menu');
@@ -98,16 +99,20 @@
   }
 
   function dashViews() {
-    const $more = $('#more'),
-          $less = $('#less'),
-          $views = $('#views');
+    const $showMore = $('i.fa-chevron-up'),
+          $showLess = $('i.fa-chevron-down'),
+          $current = $('#current'),
+          $forecast = $('#forecast');
 
-    $more.click(() => {
-      $views.animate({'top':'-90vh'});
+
+    $showMore.click(() => {
+      $current.animate({'top':'-100vh'});
+      $forecast.animate({'top':'100vh'});
     })
 
-    $less.click(() => {
-      $views.animate({'top':'0'});
+    $showLess.click(() => {
+      $current.animate({'top':'0'});
+      $forecast.animate({'top':'0'});
     })
   }
 

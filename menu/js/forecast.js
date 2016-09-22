@@ -4,12 +4,14 @@ const forecast = (() => {
     stringLocParams,
     coordsAPI,
     splitCoordsRes,
-    weatherAPI
+    weatherAPI,
+    currentTempF,
+    dailySummary
   };
 
   function stringLocParams(userInput) {
     let paramString = '';
-    
+
     for (let i = 0; i < userInput.length; i++) {
       userInput[i + 1] ?
       paramString += `${userInput[i]}/`:
@@ -68,5 +70,34 @@ const forecast = (() => {
 
     return forecastRes;
   }
+
+  function currentTempF(data) {
+    return data.currently.temperature;
+  }
+
+  function dailySummary(data) {
+    let dailyData = data.daily.data,
+        dailySum = data.daily.summary,
+        maxTempF = [],
+        minTempF = [],
+        nightlyLunation = [],
+        icons = [];
+
+    for (let i = 0; i < 7; i++) {
+      maxTempF.push(dailyData[i].temperatureMax);
+      minTempF.push(dailyData[i].temperatureMin);
+      nightlyLunation.push(dailyData[i].moonPhase)
+      icons.push(dailyData[i].icon);
+    }
+
+    return {
+      dailySum,
+      maxTempF,
+      minTempF,
+      nightlyLunation,
+      icons
+    }
+  }
+
 
 })();
