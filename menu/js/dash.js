@@ -13,7 +13,6 @@ const dash = (() => {
   }
 
   function stageSubViews(data) {
-
     const html = dailyBasics(data),
           pagination = showMore(html);
 
@@ -25,25 +24,29 @@ const dash = (() => {
 
   function dailyBasics(oneWeek) {
     let sumStr = oneWeek.dailySum
-    tempPeaksHTML = [],
-    iconsHTML = [];
+        dailyDetails = [],
+        viewTwo = '';
 
     for (let i = 0; i < 7; i++) {
-      iconsHTML.push(`<div class='icon c'><i class='wi wi-forecast-io-${oneWeek.icons[i]}'></i></div>`);
-      tempPeaksHTML.push(`<div class='nixie-one f1'>${oneWeek.maxTempF[i]}/${oneWeek.minTempF[i]}</div>`);
+      dailyDetails.push(
+        `<section class='c'>
+          <div class='dailyIcons f2'><i class='wi wi-forecast-io-${oneWeek.icons[i]}'></i></div>
+          <div class='f1 highLows'>${oneWeek.maxTempF[i]}/${oneWeek.minTempF[i]}</div>
+        </section>`
+      );
     }
 
-    return {
-      sumStr,
-      tempPeaksHTML,
-      iconsHTML
-    }
+    viewTwo +=
+      `<section class='page nixie-one'>
+        <div id='weekly' class='f1'>${sumStr}</div>
+        <div class='r'>${dailyDetails.join('')}</div>
+      </section>`
 
+    return viewTwo
   }
 
   function nightlyLunation() {
     for (let i = 0; i < 7; i++) {
-      iconHTML.push(`<div class='icon c'><i class='wi wi-forecast-io-${data.icons[i]}'></i></div>`);
       lunation.push(data.nightlyLunation[i]);
     }
   }
@@ -52,9 +55,7 @@ const dash = (() => {
     let html = [],
         count = 0;
 
-    html.push(`<section id='weekly' class='c page nixie-one f1'>${subView.sumStr}</section>`);
-    html.push(`<section id='weekly' class='c page nixie-one f1'>${subView.tempPeaksHTML}</section>`);
-    html.push(`<section id='dailyIcons' class='page f1'>${subView.iconsHTML}</section>`);
+    html.push(subView);
 
     return function() {
       if (count > html.length) return;
