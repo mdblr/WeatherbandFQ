@@ -161,15 +161,17 @@ input {
 
 
 #weekly {
-  font-size: 140%;
+  font-size: 195%;
   line-height: 4;
   text-align: center;
 }
 
-#dailyIcons {
-  display: flex;
-  flex-direction: row !important;
-  font-size: .28%;
+.dailyIcons {
+  font-size: 600%;
+}
+
+.highLow {
+  font-size: 200%;
 }
 
 .icon {
