@@ -29,9 +29,9 @@ const dash = (() => {
 
     for (let i = 0; i < 7; i++) {
       dailyDetails.push(
-        `<section class='c'>
+        `<section class='c day'>
           <div class='dailyIcons f2'><i class='wi wi-forecast-io-${oneWeek.icons[i]}'></i></div>
-          <div class='f1 highLows'>${oneWeek.maxTempF[i]}/${oneWeek.minTempF[i]}</div>
+          <div class='f1 highLow'>${oneWeek.maxTempF[i]}\u00B0/${oneWeek.minTempF[i]}\u00B0</div>
         </section>`
       );
     }

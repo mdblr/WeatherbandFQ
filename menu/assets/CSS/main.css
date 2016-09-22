@@ -100,16 +100,6 @@ input {
 
 /* dash css */
 
-/*.txt-bg {
-  font-size: 60%;
-  background-color: #000;
-  opacity: .5;
-}*/
-.scroll {
-  color: #9600FA;
-  display: block;
-  float: right;
-}
 
 #views {
   height: 100%;
@@ -123,10 +113,7 @@ input {
 
 #current {
   font-size: 2000%;
-  /*text-decoration: underline #9600FA;*/
-  /*line-height: 1;*/
   color: #00E1FA;
-  /*border-bottom: 2vh solid #9600FA;*/
 }
 
 #more {
@@ -162,8 +149,12 @@ input {
 
 #weekly {
   font-size: 195%;
-  line-height: 4;
+  line-height: 1;
   text-align: center;
+}
+
+.day {
+  margin: 30px 5px 0px 5px;
 }
 
 .dailyIcons {
@@ -171,7 +162,7 @@ input {
 }
 
 .highLow {
-  font-size: 200%;
+  font-size: 180%;
 }
 
 .icon {
