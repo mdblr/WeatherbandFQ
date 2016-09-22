@@ -19,7 +19,7 @@ const dash = (() => {
     if (!$('#more').is(':visible')) {
       $('#dash').append('<section><a id="more" class="nixie-one">More</a></section>');
     }
-    
+
     $('#more').click(() => {
       pagination();
     })
@@ -40,7 +40,7 @@ const dash = (() => {
     }
 
     viewTwo +=
-      `<section class='page nixie-one'>
+      `<section class='page nixie-one fwrap'>
         <div id='weekly' class='f1'>${sumStr}</div>
         <div class='r'>${dailyDetails.join('')}</div>
       </section>`

@@ -25,6 +25,10 @@
   flex-direction: column;
 }
 
+.fwrap {
+  flex-wrap: wrap;
+}
+
 .rel {
   position: relative;
 }
