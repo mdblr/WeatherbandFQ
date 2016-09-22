@@ -3,15 +3,16 @@
   <head>
     <meta charset='utf-8'>
     <title></title>
-    <link rel='stylesheet' href='assets/main.css' />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis|Josefin+Sans|Nixie+One">
+    <link rel='stylesheet' href='assets/CSS/main.css' />
+    <link rel="stylesheet" href='assets/CSS/weather-icons.min.css'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Dosis|Josefin+Sans|Nixie+One'>
   </head>
   <body>
 
     <!-- menu -->
-      <header id='pane' class='c center init'>
-          <main id='menu' class='nixie-one'>
-            <form class='c'>
+      <header id='pane'>
+          <main id='menu' class='nixie-one c center'>
+            <form class='c rel'>
               <section class='bar'>
                 <input id='city' type='text' placeholder='City' tabindex='1'>
               </section>
@@ -22,24 +23,20 @@
                 <input id="zip" type="text" placeholder='Zip' tabindex='3'>
               </section>
               <section>
-                <a id='submit' class='nixie-one' tabindex='4'>Get Weather</a>
+                <a id='submit' tabindex='4'>Get Weather</a>
               </section>
             </form>
-            <section id='new'>New Location</section>
+            <section id='dropdown'>New Location</section>
             <aside id='error'></aside>
           </main>
       </header>
 
       <!-- dash -->
-
-      <main id='dash' class='c center'>
-        <div id='views'>
-          <i id='more' class="fa fa-chevron-up fa-4x" aria-hidden="true"></i>
-          <section id='current' class='r dosis'></section>
-          <section id='forecast' class='r nixie-one'>I'm a section too!</section>
-          <i id='less' class="fa fa-chevron-down fa-4x" aria-hidden="true"></i>
+        <div id='views' class='c center'>
+          <section id='weekly' class='rel nixie-one txt-bg f2'></section>
+          <section id='current' class='rel dosis f1'></section>
+          <div id='dailyIcons' class='txt-bg rel f2'></div>
         </div>
-      </main>
 
       <!-- imgs -->
 
