@@ -1,10 +1,12 @@
 (() => {
 
+
   loadBackgrounds();
   mtDropdown();
   submit();
   reset();
-  dashViews();
+
+
 
   function submit() {
     const $setLoc = $('#submit'),
@@ -13,6 +15,7 @@
     let eventDisable = false;
 
     $setLoc.on('click keydown', e => {
+
       if (!(e.which === 1 || e.which === 13) || eventDisable) return;
       else eventDisable = true;
       if ($err.is(':visible')) $err.hide();
@@ -28,18 +31,17 @@
       coordsAJAX
         .then( res => {
           forecast.errorHandling(res);
-
           coords = forecast.splitCoordsRes(res);
           weatherAJAX = forecast.weatherAPI(coords);
 
           return weatherAJAX
-                  .then( res => {
-                    weather = res;
-                    return weather;
-                  })
-                  .catch( err => {
-                    throw new Error('Problem with weather service.');
-                  });
+          .then( res => {
+            weather = res;
+            return weather;
+          })
+          .catch( err => {
+            throw new Error('Problem with weather service.');
+          });
         })
         .catch( err => {
           form.showErr($err, err);
@@ -54,13 +56,15 @@
     });
   }
 
+
   function reset() {
     const $resetLoc = $('#dropdown');
 
-    $resetLoc.click( () => {
+    $resetLoc.click(() => {
       menu.open();
     });
   }
+
 
   function mtDropdown() {
     const $newLocation = $('#dropdown'),
@@ -77,6 +81,7 @@
       $newLocation.hide();
     })
   }
+
 
   function loadBackgrounds() {
     $('#background-carousel').cycle({
