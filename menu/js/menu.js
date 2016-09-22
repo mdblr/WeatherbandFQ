@@ -40,9 +40,10 @@ const menu = (() => {
       $inputs.eq(i).slideUp();
       $bars.eq(i).animate({'width':'40px'});
     }
-    
+
     //form.js
     form.clear($inputs);
   }
+
 
 })();
