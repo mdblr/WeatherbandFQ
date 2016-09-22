@@ -1,22 +1,17 @@
 * {
   box-sizing: border-box;
-}
-
-body {
-  overflow: hidden;
+  margin: 0;
+  /*padding: 0;*/
 }
 
 #pane {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
+  width: 100%;
+  height: 100vh;
   background-color: #000;
   opacity: .8;
-  width: 100vw;
-}
-
-.init {
-  height: 100vh;
 }
 
 .r, .r > * {
@@ -27,6 +22,10 @@ body {
 .c, .c > * {
   display: flex;
   flex-direction: column;
+}
+
+.rel {
+  position: relative;
 }
 
 .center, .center > * {
@@ -46,26 +45,28 @@ input:focus {
 }
 
 .bar {
-  width: 11.6vw;
-  min-width: 2.8vw !important;
+  width: 90%;
   border-bottom: 2px white solid;
-  margin: .55vh 0;
+  margin: 5px 0;
 }
 
 input {
   height: 1.5em;
-  width: 15vw;
   font-family: 'Nixie One', cursive;
 }
 
-form {
-  position: relative;
+#menu {
+  height: 100%;
+  width: 100%;
+  min-width: 40px;
+  top: 0px;
+  left: 0px;
 }
 
-#new {
+#dropdown {
   display: none;
   position: absolute;
-  top: 4.5vh;
+  top: 55px;
   left: 0vw;
   background-color: #000;
   color: #fff;
@@ -75,7 +76,6 @@ form {
 #close {
   color: #fff;
   position: absolute;
-
 }
 
 #submit {
@@ -84,39 +84,84 @@ form {
   margin: 2em auto;
 }
 
+#submit:active {
+  opacity: .4;
+  background-color: #fff;
+}
+
 #error {
+  width: 35%;
   display: none;
   color: white;
+  text-align: center;
 }
 
 /* dash css */
 
-i {
+/*.txt-bg {
+  font-size: 60%;
+  background-color: #000;
+  opacity: .5;
+}*/
+.scroll {
   color: #9600FA;
-  position: relative;
-  top: 10vh;
-  left: 48vw;
-}
-
-#dash {
-  height: 94.5vh;
-  width: 98vw;
+  display: block;
+  float: right;
 }
 
 #views {
-  position: relative;
-  top: 110vh;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 
 #current {
-  font-size: 65vh;
+  font-size: 2000%;
+  line-height: 1;
   color: #00E1FA;
   border-bottom: 2vh solid #9600FA;
 }
 
+@media only screen and (max-width: 600px) {
+  #current {
+    font-size: 1000%;
+  }
+}
+
+.f1 {
+  color: #00E1FA;
+}
+
+.f2 {
+  color: #9600FA;
+}
+
 #forecast {
-  position: relative;
-  top: 25vh;
+  color: #00E1FA;
+}
+
+
+#weekly {
+  font-size: 140%;
+  line-height: 4;
+  text-align: center;
+}
+
+#dailyIcons {
+  display: flex;
+  flex-direction: row !important;
+  font-size: .28%;
+}
+
+.icon {
+  margin: 2vw;
+  height:14vh;
+  width: 14vh;
+  border: 2px solid #00E1FA;
+  border-radius: 50%;
+  color: #9600FA;
+  font-size: 12vh;
 }
 
 .dosis {
@@ -139,7 +184,7 @@ i {
   width: 100%;
   height: auto;
   position: fixed;
-  top: 4.5vh;
+  top: 0;
   left: 0;
   z-index:-9999;
   animation:move 7s ease infinite;
@@ -174,49 +219,49 @@ i {
 }
 
 #selena1 {
-  background-image: url(./imgs/selena1.jpg);
+  background-image: url(../imgs/selena1.jpg);
 }
 
 #dh1 {
-  background-image: url(./imgs/dharry2.png);
+  background-image: url(../imgs/dharry2.png);
 }
 
 #sioux{
-  background-image: url(./imgs/1118full-siouxsie-sioux.jpg);
+  background-image: url(../imgs/1118full-siouxsie-sioux.jpg);
 }
 
 #atcq{
-  background-image: url(./imgs/atcq1.jpg);
+  background-image: url(../imgs/atcq1.jpg);
 }
 
 #bowie{
-  background-image: url(./imgs/DAVID-BOWIE-PENDANT-SA-TOURNEE-MONDIALE-1976.jpg);
+  background-image: url(../imgs/DAVID-BOWIE-PENDANT-SA-TOURNEE-MONDIALE-1976.jpg);
 }
 
 #gjones{
-  background-image: url(./imgs/gj_snow.jpg);
+  background-image: url(../imgs/gj_snow.jpg);
 }
 
 #hendrix{
-  background-image: url(./imgs/jh2.jpg);
+  background-image: url(../imgs/jh2.jpg);
 }
 
 #mercury{
-  background-image: url(./imgs/jimhutton_freddiemercury.jpg);
+  background-image: url(../imgs/jimhutton_freddiemercury.jpg);
 }
 
 #loureed{
-  background-image: url(./imgs/loureed.jpg);
+  background-image: url(../imgs/loureed.jpg);
 }
 
 #morrissey{
-  background-image: url(./imgs/morrissey.jpg);
+  background-image: url(../imgs/morrissey.jpg);
 }
 
 #nina{
-  background-image: url(./imgs/ns2.jpg);
+  background-image: url(../imgs/ns2.jpg);
 }
 
 #prince{
-  background-image: url(./imgs/prince-04.jpg);
+  background-image: url(../imgs/prince-04.jpg);
 }
