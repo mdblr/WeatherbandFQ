@@ -6,9 +6,14 @@ const dash = (() => {
   }
 
   function viewOne(data) {
-    const $viewOne = $('#current'),
-          $views = $('#views');
-    $viewOne.text(`${data}\u00B0`);
+    const $views = $('#views');
+
+    $views.html(
+      `<div id='viewOne' class='center rel page'>
+        <div id='loc' class='nixie-one f2'>${forecast.getLocData()}</div>
+        <div id='current' class='dosis'>${data}\u00B0</div>
+      </div>`
+    );
     $views.animate({'top': '0'});
   }
 
@@ -32,7 +37,7 @@ const dash = (() => {
       dailyDetails.push(
         `<section class='c day'>
           <div class='dailyIcons f2'><i class='wi wi-forecast-io-${oneWeek.icons[i]}'></i></div>
-          <div class='f1 highLow'>${oneWeek.maxTempF[i]}\u00B0/${oneWeek.minTempF[i]}\u00B0</div>
+          <div class='f1 highLow dosis'>${oneWeek.maxTempF[i]}\u00B0/${oneWeek.minTempF[i]}\u00B0</div>
         </section>`
       );
     }
