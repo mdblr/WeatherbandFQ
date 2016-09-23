@@ -37,6 +37,9 @@
           return weatherAJAX
           .then( res => {
             weather = res;
+            dash.viewOne(forecast.currentTempF(weather));
+            dash.stageSubViews(forecast.dailySummary(weather));
+            menu.close();
             return weather;
           })
           .catch( err => {
@@ -48,9 +51,6 @@
           $err.show();
         })
         .then( weather => {
-          dash.viewOne(forecast.currentTempF(weather));
-          dash.stageSubViews(forecast.dailySummary(weather));
-          menu.close();
           eventDisable = false;
         });
     });
