@@ -1,4 +1,5 @@
 const forecast = (() => {
+  let location;
 
   return {
     stringLocParams,
@@ -7,8 +8,10 @@ const forecast = (() => {
     weatherAPI,
     currentTempF,
     dailySummary,
-    errorHandling
+    errorHandling,
+    getLocData
   };
+
 
   function stringLocParams(userInput) {
     let paramString = '';
@@ -35,6 +38,7 @@ const forecast = (() => {
         url: `${weatherUnderground}${paramString}`
       })
       .then(res => {
+        setLocData(res.current_observation.display_location.full);
         return res;
       })
       .fail( err => {
@@ -72,6 +76,14 @@ const forecast = (() => {
 
   function currentTempF(data) {
     return data.currently.temperature;
+  }
+
+  function setLocData(data) {
+    location = data;
+  }
+
+  function getLocData() {
+    return location;
   }
 
   function dailySummary(data) {
