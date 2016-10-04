@@ -1,92 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset='utf-8'>
     <title></title>
-
-    <!-- erik flowers weather icons -->
-    <link rel="stylesheet" href="CSS/weather-icons.css">
-    <link rel="stylesheet" href="CSS/weather-icons.min.css">
-    <link rel='import' href="location.html" />
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Custom -->
-    <link rel="stylesheet" href="styling.css">
-    <!-- fontAwesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
+    <link rel='stylesheet' href='assets/CSS/main.css' />
+    <link rel="stylesheet" href='assets/CSS/weather-icons.min.css'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Dosis|Josefin+Sans|Nixie+One'>
   </head>
   <body>
-    <section class="container-fluid">
-      <div id="slideshow" class="landingBlur">
-        <div id="selena1" class="bgM"/></div>
-        <div id="dh1" class="bgM"/></div>
-        <div id="sioux" class="bgM"/></div>
-        <div id="atcq" class="bgM"/></div>
-        <div id="bowie" class="bgM"/></div>
-        <div id="gjones" class="bgM"/></div>
-        <div id="hendrix" class="bgM"/></div>
-        <div id="mercury" class="bgM"/></div>
-        <div id="loureed" class="bgM"/></div>
-        <div id="morrissey" class="bgM"/></div>
-        <div id="nina" class="bgM"/></div>
-        <div id="prince" class="bgM"/></div>
-      </div>
 
-      <section id="main" class="col-md-12">
+    <!-- menu -->
 
-        <div id="input">
-          <main class="col-md-offset-5 col-md-2 col-md-offset-5 bgFade">
-            <section class="form-group">
-              <label > City:</label>
-              <input id="city" type="text" class="form-control" placeholder="e.g., Seattle" required>
-            </section>
-            <section class="form-group">
-              <label >State:</label>
-              <input id="state" type="text" class="form-control" placeholder="e.g., WA" required>
-            </section>
-            <section class="form-group">
-              <label> ZIP:</label>
-              <input id="zip" type="text" class="form-control" placeholder="e.g., 98109">
-            </section>
-            <section class="form-group">
-              <button id="click" class="btn btn-info">Go</button>
-            </section>
+      <header id='pane'>
+          <main id='menu' class='nixie-one c center'>
+            <form class='c rel'>
+              <section class='bar'>
+                <input id='city' type='text' placeholder='City' tabindex='1'>
+              </section>
+              <section class='bar'>
+                <input id="state" type="text" placeholder='State' tabindex='2'>
+              </section>
+              <section class='bar'>
+                <input id="zip" type="text" placeholder='Zip' tabindex='3'>
+              </section>
+              <section>
+                <a id='submit' tabindex='4'>Get Weather</a>
+              </section>
+            </form>
+            <section id='dropdown'>New Location</section>
+            <aside id='error'></aside>
           </main>
+      </header>
+
+      <!-- dash -->
+
+        <div id='dash' class='c center'>
+          <div id='views' class='c'></div>
         </div>
 
-        <main class="col-md-offset-4 col-md-4 col-md-offset-4">
-          <div id="background">
-            <section id='temp' class="todaysTemp lead"></section>
-            <summary></summary>
-          </div>
-        </main>
+      <!-- imgs -->
 
-      </section>
+      <div id="background-carousel">
+        <div id="selena1" class='bgs-cv bgr-n bgp-c'></div>
+        <div id="dh1" class='bgs-cv bgr-n bgp-c'></div>
+        <div id="sioux" class='bgs-cv bgr-n bgp-c'></div>
+        <div id="atcq" class='bgs-cv'></div>
+        <div id="bowie" class='bgs-cv'></div>
+        <div id="gjones" class='bgs-cn bgr-n bgp-c'></div>
+        <div id="hendrix" class='bgs-cv bgp-c'></div>
+        <div id="mercury" class='bgs-cv bgp-l'></div>
+        <div id="loureed" class='bgs-cn bgp-r'></div>
+        <div id="morrissey" class='bgs-cv bgr-n bgp-l'></div>
+        <div id="nina" class='bgs-cn bgr-x bgp-c'></div>
+        <div id="prince" class='bgs-cv'></div>
+      </div>
 
-      <footer>
-        <aside class="col-md-8">
-          <h5 id="creds" class="text-right">weather provided by <a href="https://www.wunderground.com/">Weather Underground</a> and <a href="forecast.io">Forecast.io</a></h5>
-        </aside>
-        <main class="col-md-4">
-          <h5 id="reset" class="text-right">New Query</h5>
-        </main>
-      </footer>
+      <!-- scripts -->
 
-    </section>
+      <script src='https://code.jquery.com/jquery-3.1.0.js'></script>
+      <script src="https://use.fontawesome.com/d2bbb641f0.js"></script>
+      <script src='./js/cycle.js'></script>
+      <script src='./js/forecast.js'></script>
+      <script src='./js/form.js'></script>
+      <script src='./js/dash.js'></script>
+      <script src='./js/menu.js'></script>
+      <script src='app.js'></script>
 
-    <!-- moment.js -->
-    <script src="moment.js"></script>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <!-- jquery cycle function -->
-      <script src="cycle.js"></script>
-    <!-- Custom -->
-    <script src="app.js"></script>
   </body>
 </html>
