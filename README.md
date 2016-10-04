@@ -1,3 +1,2 @@
-# super-duper-enigma
-app for music nerds who want to dress appropriately for the weather. 
-new-caption.surge.sh
+# WeatherBandFQ
+[fun weather app for music nerds](http://weather-band-fq.surge.sh/)
