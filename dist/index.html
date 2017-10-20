@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title></title>
+    <link rel='stylesheet' href='../assets/CSS/main.css' />
+    <link rel="stylesheet" href='../assets/CSS/weather-icons.min.css'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Dosis|Josefin+Sans|Nixie+One'>
+    <script src='bundle.js'></script>
+  </head>
+  <body>
+
+    <!-- menu -->
+
+      <header id='pane'>
+          <main id='menu' class='nixie-one c center'>
+            <form class='c rel'>
+              <section class='bar'>
+                <input id='city' type='text' placeholder='City' tabindex='1'>
+              </section>
+              <section class='bar'>
+                <input id="state" type="text" placeholder='State' tabindex='2'>
+              </section>
+              <section class='bar'>
+                <input id="zip" type="text" placeholder='Zip' tabindex='3'>
+              </section>
+              <section>
+                <a id='submit' tabindex='4'>Get Weather</a>
+              </section>
+            </form>
+            <section id='dropdown'>New Location</section>
+            <aside id='error'></aside>
+          </main>
+      </header>
+
+      <!-- dash -->
+
+        <div id='dash' class='c center'>
+          <div id='views' class='c'></div>
+        </div>
+
+      <!-- imgs -->
+
+      <div id="background-carousel">
+        <div id="selena1" class='bgs-cv bgr-n bgp-c'></div>
+        <div id="dh1" class='bgs-cv bgr-n bgp-c'></div>
+        <div id="sioux" class='bgs-cv bgr-n bgp-c'></div>
+        <div id="atcq" class='bgs-cv'></div>
+        <div id="bowie" class='bgs-cv'></div>
+        <div id="gjones" class='bgs-cn bgr-n bgp-c'></div>
+        <div id="hendrix" class='bgs-cv bgp-c'></div>
+        <div id="mercury" class='bgs-cv bgp-l'></div>
+        <div id="loureed" class='bgs-cn bgp-r'></div>
+        <div id="morrissey" class='bgs-cv bgr-n bgp-l'></div>
+        <div id="nina" class='bgs-cn bgr-x bgp-c'></div>
+        <div id="prince" class='bgs-cv'></div>
+      </div>
+
+      <!-- scripts -->
+
+      <script src="https://use.fontawesome.com/d2bbb641f0.js"></script>
+      <script src='../js/cycle.js'></script>
+      <script src='../js/forecast.js'></script>
+      <script src='../js/form.js'></script>
+      <script src='../js/dash.js'></script>
+      <script src='../js/menu.js'></script>
+      <script src='../app.js'></script>
+
+  </body>
+</html>

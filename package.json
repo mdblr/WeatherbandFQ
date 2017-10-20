@@ -1,0 +1,31 @@
+{
+  "name": "weatherbandfq",
+  "version": "1.0.0",
+  "description": "Personal project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdblr/WeatherbandFQ.git"
+  },
+  "keywords": [
+    "javascript",
+    "w3",
+    "weather",
+    "seattle"
+  ],
+  "author": "mdblr",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/mdblr/WeatherbandFQ/issues"
+  },
+  "homepage": "https://github.com/mdblr/WeatherbandFQ#readme",
+  "devDependencies": {
+    "webpack": "^3.8.1"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
