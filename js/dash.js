@@ -37,7 +37,7 @@ function dailyBasics(oneWeek) {
       </section>`
     );
   }
-
+  console.log(dailyDetails);
   viewTwo +=
     `<section id='viewTwo' class='page nixie-one fwrap'>
       <div id='description' class='f1'>${sumStr}</div>
