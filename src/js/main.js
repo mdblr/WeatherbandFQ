@@ -5,11 +5,13 @@ import * as dash from './dash.js';
 import * as menu from './menu.js';
 import cycle from './cycle.js';
 
-cycle();
-loadBackgrounds();
-mtDropdown();
-submit();
-reset();
+function init() {
+  cycle();
+  loadBackgrounds();
+  mtDropdown();
+  submit();
+  reset();
+}
 
 function submit() {
   const $setLoc = $('#submit'),
@@ -96,3 +98,5 @@ function loadBackgrounds() {
     timeout:  3500
   });
 }
+
+export { init }
