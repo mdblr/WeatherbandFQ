@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import * as form from './form.js'; 
 import * as forecast from './forecast.js';
 import * as dash from './dash.js';

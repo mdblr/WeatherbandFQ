@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import * as forecast from './forecast.js';
 
 function viewOne(data) {

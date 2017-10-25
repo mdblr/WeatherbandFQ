@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 function getValues($inputs) {
   if ($inputs.length < 1) throw new Error('Form is empty')
   let arr = [];

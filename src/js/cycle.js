@@ -10,8 +10,6 @@
  */
 "use strict";
 
-import $ from 'jquery';
-
 export default function() {
   
   var ver = 'Lite-1.7';

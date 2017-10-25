@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 let location;
 
 function stringLocParams(userInput) {

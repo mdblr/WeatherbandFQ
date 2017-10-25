@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import * as form from './form.js';
 import * as menu from './menu.js';
 
